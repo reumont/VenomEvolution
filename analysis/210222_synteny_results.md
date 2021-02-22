@@ -179,10 +179,12 @@ _Apis mellifera_
      gff2bed < ../GCF_003254395.2_Amel_HAv3.1_genomic.gff >  \
      GCF_003254395.2_Amel_HAv3._1.bed
 
-     cgat bed2bed --method=merge --merge-by-name -I GCF_003254395.2_Amel_HAv3._1.bed > GCF_003254395.2_Amel_HAv3._1_merged.bed
+     cgat bed2bed --method=merge --merge-by-name -I   \
+     GCF_003254395.2_Amel_HAv3._1.bed > GCF_003254395.2_Amel_HAv3._1_merged.bed
 
      #Filter bed file to include only the chromosomes where apamin orthologs are present
-     grep -Fwf apamin_orthologs GCF_003254395.2_Amel_HAv3._1_merged.bed > GCF_003254395.2_Amel_HAv3._1_merged_filtered.bed
+     grep -Fwf apamin_orthologs GCF_003254395.2_Amel_HAv3._1_merged.bed   \
+     > GCF_003254395.2_Amel_HAv3._1_merged_filtered.bed
 
      ## rename with array the gene duplicates and rename chromosomes to add the species id and clean up
 
@@ -197,9 +199,11 @@ _Apis florea_
      gff2bed < ../GCF_000184785.3_Aflo_1.1_genomic.gff >  \
      GCF_000184785.3_Aflo_1.1.bed
 
-     cgat bed2bed --method=merge --merge-by-name -I GCF_000184785.3_Aflo_1.1.bed > GCF_000184785.3_Aflo_1.1_merged.bed
+     cgat bed2bed --method=merge --merge-by-name -I GCF_000184785.3_Aflo_1.1.bed   \
+     > GCF_000184785.3_Aflo_1.1_merged.bed
 
-     grep -Fwf apamin_orthologs GCF_000184785.3_Aflo_1.1_merged.bed > GCF_000184785.3_Aflo_1.1_merged_filtered.bed
+     grep -Fwf apamin_orthologs GCF_000184785.3_Aflo_1.1_merged.bed   \
+     > GCF_000184785.3_Aflo_1.1_merged_filtered.bed
 
      ## rename with array the gene duplicates and rename chromosomes to add the species id and clean up
 
@@ -263,9 +267,11 @@ _Apis dorsata_
     gff2bed < ../GCF_000469605.1_Apis_dorsata_1.3_genomic.gff >  \
     GCF_000469605.1_Apis_dorsata.bed
 
-    cgat bed2bed --method=merge --merge-by-name -I GCF_000469605.1_Apis_dorsata.bed > GCF_000469605.1_Apis_dorsata_merged.bed
+    cgat bed2bed --method=merge --merge-by-name -I GCF_000469605.1_Apis_dorsata.bed   \
+    > GCF_000469605.1_Apis_dorsata_merged.bed
 
-    grep -Fwf apamin_orthologs GCF_000469605.1_Apis_dorsata_merged.bed > GCF_000469605.1_Apis_dorsata_merged_filtered.bed
+    grep -Fwf apamin_orthologs GCF_000469605.1_Apis_dorsata_merged.bed   \
+    > GCF_000469605.1_Apis_dorsata_merged_filtered.bed
 
     ## rename with array the gene duplicates and rename chromosomes to add the species id and clean up
 
@@ -279,9 +285,11 @@ _Habropoda laboriosa_
     gff2bed < ../GCF_001263275.1_ASM126327v1_genomic.gff >  \
     GCF_001263275.1_ASM126327v1.bed
 
-    cgat bed2bed --method=merge --merge-by-name -I GCF_001263275.1_ASM126327v1.bed > GCF_001263275.1_ASM126327v1_merged.bed
+    cgat bed2bed --method=merge --merge-by-name -I GCF_001263275.1_ASM126327v1.bed   \
+    > GCF_001263275.1_ASM126327v1_merged.bed
 
-    grep -Fwf apamin_orthologs GCF_001263275.1_ASM126327v1_merged.bed > GCF_001263275.1_ASM126327v1_merged_filtered.bed
+    grep -Fwf apamin_orthologs GCF_001263275.1_ASM126327v1_merged.bed   \
+    > GCF_001263275.1_ASM126327v1_merged_filtered.bed
 
     ## rename with array the gene duplicates and rename chromosomes to add the species id and clean up
 
@@ -407,9 +415,11 @@ _Vespa mandarinia_
     gff2bed < ../GCF_014083535.2_V.mandarinia_Nanaimo_p1.0_genomic.gff >  \
     GCF_014083535.2_V.mandarinia_Nanaimo.bed
 
-    cgat bed2bed --method=merge --merge-by-name -I GCF_014083535.2_V.mandarinia_Nanaimo.bed > GCF_014083535.2_V.mandarinia_Nanaimo_merged.bed
+    cgat bed2bed --method=merge --merge-by-name -I GCF_014083535.2_V.mandarinia_Nanaimo.bed   \
+    > GCF_014083535.2_V.mandarinia_Nanaimo_merged.bed
 
-    grep -Fwf apamin_orthologs GCF_014083535.2_V.mandarinia_Nanaimo_merged.bed > GCF_014083535.2_V.mandarinia_Nanaimo_merged_filtered.bed
+    grep -Fwf apamin_orthologs GCF_014083535.2_V.mandarinia_Nanaimo_merged.bed  \
+    > GCF_014083535.2_V.mandarinia_Nanaimo_merged_filtered.bed
 
     ## rename with array the gene duplicates and rename chromosomes to add the species id and clean up
 
