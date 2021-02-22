@@ -25,7 +25,8 @@ First Obtain flanking genes from the bed files
 
 Filter the select genes from the fasta file
 
-    seqkit grep -f apis_flanking_genes ../GCF_003254395.2_Amel_HAv3.1_protein.faa -o GCF_003254395.2_Amel_HAv3.1.flank.fasta
+    seqkit grep -f apis_flanking_genes ../GCF_003254395.2_Amel_HAv3.1_protein.faa  \
+    -o GCF_003254395.2_Amel_HAv3.1.flank.fasta
 
     mkdir 210120_blast_results_orthologs
     cd 210120_blast_results_orthologs
@@ -38,7 +39,8 @@ Filter the select genes from the fasta file
     cd ../
     mkdir 201230_apamin_flank
 
-    ## the program recommends using the outdated NCBI BLAST. However, BLAST+ has several improvements over the legacy BLAST applications. 
+    ## the program recommends using the outdated NCBI BLAST. 
+    ## However, BLAST+ has several improvements over the legacy BLAST applications. 
 
     blastp -num_threads 8 -query ../GCF_003254395.2_Amel_HAv3.1_protein.faa \
     -db 201230_blast_results_orthologs/apis_apamin_flanks \
