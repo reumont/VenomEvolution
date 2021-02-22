@@ -142,37 +142,14 @@ Get orthologs for apamin
       awk '{print $2}' 201230_apamin_flank/blast_results.blast > apamin_apis
       awk '{print $1}' 201230_apamin_flank/blast_results.blast > apamin_orthologs
 
-Edit the gff file. The porogram only allows one entry per gene. So merge all genes that overlap with the same name using cagt
-
+     #Activate bioconda
+     
+      conda activate
      conda install -c conda-forge -c bioconda cgat-apps
-
-Activate bioconda
-
-     conda activate
      rm 201231_gff_files/* # make sure other files are deleted
 
 
-Most insect genomes are just scafolds, and their names are not compatible with MCScanX, so thelables were replaced by a fixed number
-
-_Apis mellifera_ preparation
-
-
-     gff2bed < ../GCF_003254395.2_Amel_HAv3.1_filtered.gff >  \
-     GCF_003254395.2_Amel_HAv3.bed
-
-     cgat bed2bed --method=merge --merge-by-name -I GCF_003254395.2_Amel_HAv3.bed > GCF_003254395.2_Amel_HAv3_merged.bed
-
-
-Filter bed file to include only the chromosomes where apamin orthologs are present
-
-    grep -Fwf apamin_apis GCF_003254395.2_Amel_HAv3_merged.bed > GCF_003254395.2_Amel_HAv3_merged_filtered.bed
-
-     ## rename with array the gene duplicates and rename chromosomes to add the species id and clean up
-
-     awk '$4 in a {$4=$4 "_" ++a[$4]}{a[$4];print}' GCF_003254395.2_Amel_HAv3_merged_filtered.bed| \
-     sed '/^[[:blank:]]*#/d;s/#.*//' | \
-     awk '$6 = "am1" $(NF+1)' | \
-     awk '{print $6,$4,$2,$3}'  OFS='\t' > 201231_gff_files/GCF_003254395.2_Amel_HAv3_merged_filtered_duplicates.bed
+Most insect genomes are just scafolds, and their names are not compatible with MCScanX, so thelables were replaced by a fixed number. Also, append the bed file to include only the chromosomes where apamin orthologs are present
 
 _Apis mellifera_
 
