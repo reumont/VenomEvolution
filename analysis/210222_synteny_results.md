@@ -160,7 +160,7 @@ _Apis mellifera_ preparation
      gff2bed < ../GCF_003254395.2_Amel_HAv3.1_filtered.gff >  \
      GCF_003254395.2_Amel_HAv3.bed
 
-     cgat bed2bed --method=merge --merge-by-name -I  GCF_003254395.2_Amel_HAv3.bed > GCF_003254395.2_Amel_HAv3_merged.bed
+     cgat bed2bed --method=merge --merge-by-name -I GCF_003254395.2_Amel_HAv3.bed > GCF_003254395.2_Amel_HAv3_merged.bed
 
 
 Filter bed file to include only the chromosomes where apamin orthologs are present
@@ -303,9 +303,11 @@ _Polistes canadensis_
     gff2bed < ../GCF_001313835.1_ASM131383v1_genomic.gff >  \
     GCF_001313835.1_ASM131383v1.bed
 
-    cgat bed2bed --method=merge --merge-by-name -I GCF_001313835.1_ASM131383v1.bed > GCF_001313835.1_ASM131383v1_merged.bed
+    cgat bed2bed --method=merge --merge-by-name -I GCF_001313835.1_ASM131383v1.bed   \
+    > GCF_001313835.1_ASM131383v1_merged.bed
 
-    grep -Fwf apamin_orthologs GCF_001313835.1_ASM131383v1_merged.bed > GCF_001313835.1_ASM131383v1_merged_filtered.bed
+    grep -Fwf apamin_orthologs GCF_001313835.1_ASM131383v1_merged.bed   \
+    > GCF_001313835.1_ASM131383v1_merged_filtered.bed
 
     ## rename with array the gene duplicates and rename chromosomes to add the species id and clean up
 
@@ -367,7 +369,8 @@ _Osmia bicornis_
     gff2bed < ../GCF_004153925.1_Obicornis_v3_genomic.gff >  \
     GCF_004153925.1_Obicornis.bed
 
-    cgat bed2bed --method=merge --merge-by-name -I GCF_004153925.1_Obicornis.bed > GCF_004153925.1_Obicornis_merged.bed
+    cgat bed2bed --method=merge --merge-by-name -I GCF_004153925.1_Obicornis.bed  \
+    > GCF_004153925.1_Obicornis_merged.bed
 
     grep -Fwf apamin_orthologs GCF_004153925.1_Obicornis_merged.bed > GCF_004153925.1_Obicornis_merged_filtered.bed
 
@@ -399,16 +402,18 @@ _Bombus vosnesenskii_
     gff2bed < ../GCF_011952255.1_Bvos_JDL3184-5_v1.1_genomic.gff >  \
     GCF_011952255.1_Bvos_JDL3184-5.bed
 
-    cgat bed2bed --method=merge --merge-by-name -I GCF_011952255.1_Bvos_JDL3184-5.bed > GCF_011952255.1_Bvos_JDL3184-5_merged.bed
+    cgat bed2bed --method=merge --merge-by-name -I GCF_011952255.1_Bvos_JDL3184-5.bed   \
+    > GCF_011952255.1_Bvos_JDL3184-5_merged.bed
 
-    grep -Fwf apamin_orthologs GCF_011952255.1_Bvos_JDL3184-5_merged.bed > GCF_011952255.1_Bvos_JDL3184-5_merged_filtered.bed
+    grep -Fwf apamin_orthologs GCF_011952255.1_Bvos_JDL3184-5_merged.bed   \
+    > GCF_011952255.1_Bvos_JDL3184-5_merged_filtered.bed
 
     ## rename with array the gene duplicates and rename chromosomes to add the species id and clean up
 
     awk '$4 in a {$4=$4 "_" ++a[$4]}{a[$4];print}' GCF_011952255.1_Bvos_JDL3184-5_merged_filtered.bed | \
     sed '/^[[:blank:]]*#/d;s/#.*//' | \
     awk '$6 = "bv1" $(NF+1)' | \
-    awk '{print $6,$4,$2,$3}' OFS='\t'  > 201231_gff_files/GCF_011952255.1_Bvos_JDL3184-5_merged_filtered_duplicates.bed
+    awk '{print $6,$4,$2,$3}' OFS='\t' > 201231_gff_files/GCF_011952255.1_Bvos_JDL3184-5_merged_filtered_duplicates.bed
 
 _Vespa mandarinia_
 
@@ -426,7 +431,7 @@ _Vespa mandarinia_
     awk '$4 in a {$4=$4 "_" ++a[$4]}{a[$4];print}' GCF_014083535.2_V.mandarinia_Nanaimo_merged_filtered.bed | \
     sed '/^[[:blank:]]*#/d;s/#.*//' | \
     awk '$6 = "vm1" $(NF+1)' | \
-    awk '{print $6,$4,$2,$3}' OFS='\t' > 201231_gff_files/GCF_014083535.2_V.mandarinia_Nanaimo_merged_filtered_duplicates.bed
+    awk '{print $6,$4,$2,$3}' OFS='\t'> 201231_gff_files/GCF_014083535.2_V.mandarinia_Nanaimo_merged_filtered_duplicates.bed
 
 Concatenate all cleaned bed files
 
