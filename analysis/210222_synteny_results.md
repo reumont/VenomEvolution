@@ -431,7 +431,7 @@ _Vespa mandarinia_
     awk '$4 in a {$4=$4 "_" ++a[$4]}{a[$4];print}' GCF_014083535.2_V.mandarinia_Nanaimo_merged_filtered.bed | \
     sed '/^[[:blank:]]*#/d;s/#.*//' | \
     awk '$6 = "vm1" $(NF+1)' | \
-    awk '{print $6,$4,$2,$3}' OFS='\t'> 201231_gff_files/GCF_014083535.2_V.mandarinia_Nanaimo_merged_filtered_duplicates.bed
+    awk '{print $6,$4,$2,$3}' OFS='\t'>201231_gff_files/GCF_014083535.2_V.mandarinia_Nanaimo_merged_filtered_duplicates.bed
 
 Concatenate all cleaned bed files
 
@@ -490,7 +490,8 @@ Reformulate the results file to use on R
 Prepare the bed file to import on r
 
 
-    cgat bed2bed --method=merge --merge-by-name -I  GCF_003254395.2_Amel_HAv3.bed > GCF_003254395.2_Amel_HAv3_cds_filtered_merged.bed
+    cgat bed2bed --method=merge --merge-by-name -I GCF_003254395.2_Amel_HAv3.bed  \
+    > GCF_003254395.2_Amel_HAv3_cds_filtered_merged.bed
 
 Obtain gene list adjacent to apamin and MCD
 
@@ -499,61 +500,76 @@ Obtain gene list adjacent to apamin and MCD
     awk '{print $4}' GCF_003254395.2_Amel_HAv3.1_genomic_merged_flanks_filtered_mcscan.bed |  \
     cut -d , -f2 | sort | uniq > apis_flanking_genes_filtered_mcscan
 
-     grep -Fwf apis_flanking_genes_filtered_mcscan 201230_apamin_flank/blast_results.blast > 201230_apamin_flank/blast_results_flank_filtered.blast
+     grep -Fwf apis_flanking_genes_filtered_mcscan 201230_apamin_flank/blast_results.blast   \
+     > 201230_apamin_flank/blast_results_flank_filtered.blast
 
         #_Apis florea_
 
-        cgat bed2bed --method=merge --merge-by-name -I GCF_000184785.3_Aflo_1.1.bed > GCF_000184785.3_Aflo_1.1_cds_filtered_merged.bed
+        cgat bed2bed --method=merge --merge-by-name -I GCF_000184785.3_Aflo_1.1.bed   \
+        > GCF_000184785.3_Aflo_1.1_cds_filtered_merged.bed
 
         #_Solenopsis invicta_
 
-        cgat bed2bed --method=merge --merge-by-name -I GCF_000188075.2_Si_gnH.bed > GCF_000188075.2_Si_gnH_cds_filtered_merged.bed
+        cgat bed2bed --method=merge --merge-by-name -I GCF_000188075.2_Si_gnH.bed   \
+        > GCF_000188075.2_Si_gnH_cds_filtered_merged.bed
 
         #_Bombus terrestris_
 
-        cgat bed2bed --method=merge --merge-by-name -I GCF_000214255.1_Bter.bed > GCF_000214255.1_Bter_cds_filtered_merged.bed
+        cgat bed2bed --method=merge --merge-by-name -I GCF_000214255.1_Bter.bed   \
+        > GCF_000214255.1_Bter_cds_filtered_merged.bed
 
 
         #_Megachile rotundata_
 
-        cgat bed2bed --method=merge --merge-by-name -I GCF_000220905.1_MROT.bed > GCF_000220905.1_MROT_cds_filtered_merged.bed
+        cgat bed2bed --method=merge --merge-by-name -I GCF_000220905.1_MROT.bed   \
+        > GCF_000220905.1_MROT_cds_filtered_merged.bed
 
         #_Apis dorsata_
 
-        cgat bed2bed --method=merge --merge-by-name -I GCF_000469605.1_Apis_dorsata.bed > GCF_000469605.1_Apis_dorsata_cds_filtered_merged.bed
+        cgat bed2bed --method=merge --merge-by-name -I GCF_000469605.1_Apis_dorsata.bed   \
+        > GCF_000469605.1_Apis_dorsata_cds_filtered_merged.bed
 
         #_Habropoda laboriosa_
 
-        cgat bed2bed --method=merge --merge-by-name -I GCF_001263275.1_ASM126327v1.bed > GCF_001263275.1_ASM126327v1_cds_filtered_merged.bed
+        cgat bed2bed --method=merge --merge-by-name -I GCF_001263275.1_ASM126327v1.bed   \
+        > GCF_001263275.1_ASM126327v1_cds_filtered_merged.bed
 
         #_Polistes canadensis_
 
-        cgat bed2bed --method=merge --merge-by-name -I GCF_001313835.1_ASM131383v1.bed > GCF_001313835.1_ASM131383v1_cds_filtered_merged.bed
+        cgat bed2bed --method=merge --merge-by-name -I GCF_001313835.1_ASM131383v1.bed   \
+        > GCF_001313835.1_ASM131383v1_cds_filtered_merged.bed
 
         #_Apis cerana_
 
-        cgat bed2bed --method=merge --merge-by-name -I GCF_001442555.1_ACSNU.bed > GCF_001442555.1_ACSNU_cds_filtered_merged.bed
+        cgat bed2bed --method=merge --merge-by-name -I GCF_001442555.1_ACSNU.bed   \
+        > GCF_001442555.1_ACSNU_cds_filtered_merged.bed
 
         #_Polistes dominula_
 
-        cgat bed2bed --method=merge --merge-by-name -I GCF_001465965.1_Pdom.bed > GCF_001465965.1_Pdom_cds_filtered_merged.bed
+        cgat bed2bed --method=merge --merge-by-name -I GCF_001465965.1_Pdom.bed   \
+        > GCF_001465965.1_Pdom_cds_filtered_merged.bed
 
         #_Camponotus floridanus_
 
-        cgat bed2bed --method=merge --merge-by-name -I GCF_003227725.1_Cflo.bed > GCF_003227725.1_Cflo_cds_filtered_merged.bed
+        cgat bed2bed --method=merge --merge-by-name -I GCF_003227725.1_Cflo.bed   \
+        > GCF_003227725.1_Cflo_cds_filtered_merged.bed
 
         #_Osmia bicornis_
 
-        cgat bed2bed --method=merge --merge-by-name -I GCF_004153925.1_Obicornis.bed > GCF_004153925.1_Obicornis_cds_filtered_merged.bed
+        cgat bed2bed --method=merge --merge-by-name -I GCF_004153925.1_Obicornis.bed   \
+        > GCF_004153925.1_Obicornis_cds_filtered_merged.bed
 
         #_Nasonia vitripennis_
 
-        cgat bed2bed --method=merge --merge-by-name -I GCF_009193385.2_Nvit_psr.bed > GCF_009193385.2_Nvit_psr_cds_filtered_merged.bed
+        cgat bed2bed --method=merge --merge-by-name -I GCF_009193385.2_Nvit_psr.bed   \
+        > GCF_009193385.2_Nvit_psr_cds_filtered_merged.bed
 
         #_Bombus vosnesenskii_
 
-        cgat bed2bed --method=merge --merge-by-name -I GCF_011952255.1_Bvos_JDL3184-5.bed > GCF_011952255.1_Bvos_JDL3184-5_cds_filtered_merged.bed
+        cgat bed2bed --method=merge --merge-by-name -I GCF_011952255.1_Bvos_JDL3184-5.bed   \
+        > GCF_011952255.1_Bvos_JDL3184-5_cds_filtered_merged.bed
 
         #_Vespa mandarinia_
 
-        cgat bed2bed --method=merge --merge-by-name -I GCF_014083535.2_V.mandarinia_Nanaimo.bed > GCF_014083535.2_V.mandarinia_Nanaimo_cds_filtered_merged.bed
+        cgat bed2bed --method=merge --merge-by-name -I GCF_014083535.2_V.mandarinia_Nanaimo.bed   \
+        > GCF_014083535.2_V.mandarinia_Nanaimo_cds_filtered_merged.bed
