@@ -1,4 +1,7 @@
-#First Obtain flanking genes from the bed files
+Identifying apamin orthologs using synteny
+
+
+First Obtain flanking genes from the bed files
 
 
     gff2bed < ../GCF_003254395.2_Amel_HAv3.1_genomic.gff >  \
@@ -12,20 +15,19 @@
     grep -e "cds-" GCF_003254395.2_Amel_HAv3.1_genomic_merged.bed |  \
         sed 's/cds-//g' > GCF_003254395.2_Amel_HAv3.1_genomic_merged_flank.bed
 
-    grep -C18 -E 'NP_001011611.2|NP_001011612.1' GCF_003254395.2_Amel_HAv3.1_genomic_merged_flank.bed> GCF_003254395.2_Amel_HAv3.1_genomic_merged_flanks.bed  ##grep the flanking genes
+    grep -C18 -E 'NP_001011611.2|NP_001011612.1' GCF_003254395.2_Amel_HAv3.1_genomic_merged_flank.bed  \
+    > GCF_003254395.2_Amel_HAv3.1_genomic_merged_flanks.bed            ##grep the flanking genes
 
 
     awk '{print $4}' GCF_003254395.2_Amel_HAv3.1_genomic_merged_flanks.bed |  \
     cut -d , -f2 | sort | uniq > apis_flanking_genes
 
-    #Filter fasta file
+Filter the select genes from the fasta file
 
     seqkit grep -f apis_flanking_genes ../GCF_003254395.2_Amel_HAv3.1_protein.faa -o GCF_003254395.2_Amel_HAv3.1.flank.fasta
 
-
     mkdir 210120_blast_results_orthologs
     cd 210120_blast_results_orthologs
-
 
     makeblastdb -in ../GCF_003254395.2_Amel_HAv3.1.flank.fasta \
     -input_type fasta -dbtype prot \
@@ -35,7 +37,7 @@
     cd ../
     mkdir 201230_apamin_flank
 
-    ## the program recommends using the outdated NCBI BLAST. However, BLAST+ has several improvements over the legacy BLAST applications.
+    ## the program recommends using the outdated NCBI BLAST. However, BLAST+ has several improvements over the legacy BLAST applications. 
 
     blastp -num_threads 8 -query ../GCF_003254395.2_Amel_HAv3.1_protein.faa \
     -db 201230_blast_results_orthologs/apis_apamin_flanks \
@@ -129,7 +131,6 @@
 
 Concatenate all blast results
 
-
     rm 201230_apamin_flank/blast_results.blast
     cat 201230_apamin_flank/* > 201230_apamin_flank/blast_results.blast
 
@@ -145,7 +146,7 @@ Edit the gff file. The porogram only allows one entry per gene. So merge all gen
 Activate bioconda
 
      conda activate
-     rm 201231_gff_files/*
+     rm 201231_gff_files/* # make sure other files are deleted
 
 
 Most insect genomes are just scafolds, and their names are not compatible with MCScanX, so thelables were replaced by a fixed number
@@ -159,8 +160,9 @@ _Apis mellifera_ preparation
      cgat bed2bed --method=merge --merge-by-name -I  GCF_003254395.2_Amel_HAv3.bed > GCF_003254395.2_Amel_HAv3_merged.bed
 
 
-   #Filter bed file to include only the chromosomes where apamin orthologs are present
-     grep -Fwf apamin_apis GCF_003254395.2_Amel_HAv3_merged.bed > GCF_003254395.2_Amel_HAv3_merged_filtered.bed
+Filter bed file to include only the chromosomes where apamin orthologs are present
+
+    grep -Fwf apamin_apis GCF_003254395.2_Amel_HAv3_merged.bed > GCF_003254395.2_Amel_HAv3_merged_filtered.bed
 
      ## rename with array the gene duplicates and rename chromosomes to add the species id and clean up
 
@@ -194,7 +196,6 @@ _Apis florea_
 
      cgat bed2bed --method=merge --merge-by-name -I GCF_000184785.3_Aflo_1.1.bed > GCF_000184785.3_Aflo_1.1_merged.bed
 
-   #Filter bed file to include only the chromosomes where apamin orthologs are present
      grep -Fwf apamin_orthologs GCF_000184785.3_Aflo_1.1_merged.bed > GCF_000184785.3_Aflo_1.1_merged_filtered.bed
 
      ## rename with array the gene duplicates and rename chromosomes to add the species id and clean up
@@ -212,7 +213,6 @@ _Solenopsis invicta_
 
     cgat bed2bed --method=merge --merge-by-name -I GCF_000188075.2_Si_gnH.bed > GCF_000188075.2_Si_gnH_merged.bed
 
-  #Filter bed file to include only the chromosomes where apamin orthologs are present
     grep -Fwf apamin_orthologs GCF_000188075.2_Si_gnH_merged.bed > GCF_000188075.2_Si_gnH_merged_filtered.bed
 
     ## rename with array the gene duplicates and rename chromosomes to add the species id and clean up
@@ -229,10 +229,8 @@ _Bombus terrestris_
     GCF_000214255.1_Bter.bed
 
     cgat bed2bed --method=merge --merge-by-name -I GCF_000214255.1_Bter.bed > GCF_000214255.1_Bter_merged.bed
-
-  #Filter bed file to include only the chromosomes where apamin orthologs are present
+    
     grep -Fwf apamin_orthologs GCF_000214255.1_Bter_merged.bed > GCF_000214255.1_Bter_merged_filtered.bed
-
 
     ## rename with array the gene duplicates and rename chromosomes to add the species id and clean up
 
@@ -248,7 +246,6 @@ _Megachile rotundata_
 
     cgat bed2bed --method=merge --merge-by-name -I GCF_000220905.1_MROT.bed > GCF_000220905.1_MROT_merged.bed
 
-  #Filter bed file to include only the chromosomes where apamin orthologs are present
     grep -Fwf apamin_orthologs GCF_000220905.1_MROT_merged.bed > GCF_000220905.1_MROT_merged_filtered.bed
 
     ## rename with array the gene duplicates and rename chromosomes to add the species id and clean up
@@ -265,7 +262,6 @@ _Apis dorsata_
 
     cgat bed2bed --method=merge --merge-by-name -I GCF_000469605.1_Apis_dorsata.bed > GCF_000469605.1_Apis_dorsata_merged.bed
 
-  #Filter bed file to include only the chromosomes where apamin orthologs are present
     grep -Fwf apamin_orthologs GCF_000469605.1_Apis_dorsata_merged.bed > GCF_000469605.1_Apis_dorsata_merged_filtered.bed
 
     ## rename with array the gene duplicates and rename chromosomes to add the species id and clean up
@@ -282,7 +278,6 @@ _Habropoda laboriosa_
 
     cgat bed2bed --method=merge --merge-by-name -I GCF_001263275.1_ASM126327v1.bed > GCF_001263275.1_ASM126327v1_merged.bed
 
-  #Filter bed file to include only the chromosomes where apamin orthologs are present
     grep -Fwf apamin_orthologs GCF_001263275.1_ASM126327v1_merged.bed > GCF_001263275.1_ASM126327v1_merged_filtered.bed
 
     ## rename with array the gene duplicates and rename chromosomes to add the species id and clean up
@@ -299,9 +294,7 @@ _Polistes canadensis_
 
     cgat bed2bed --method=merge --merge-by-name -I GCF_001313835.1_ASM131383v1.bed > GCF_001313835.1_ASM131383v1_merged.bed
 
-  #Filter bed file to include only the chromosomes where apamin orthologs are present
     grep -Fwf apamin_orthologs GCF_001313835.1_ASM131383v1_merged.bed > GCF_001313835.1_ASM131383v1_merged_filtered.bed
-
 
     ## rename with array the gene duplicates and rename chromosomes to add the species id and clean up
 
@@ -317,7 +310,6 @@ _Apis cerana_
 
     cgat bed2bed --method=merge --merge-by-name -I GCF_001442555.1_ACSNU.bed > GCF_001442555.1_ACSNU_merged.bed
 
-  #Filter bed file to include only the chromosomes where apamin orthologs are present
     grep -Fwf apamin_orthologs GCF_001442555.1_ACSNU_merged.bed > GCF_001442555.1_ACSNU_merged_filtered.bed
 
     ## rename with array the gene duplicates and rename chromosomes to add the species id and clean up
@@ -334,7 +326,6 @@ _Polistes dominula_
 
     cgat bed2bed --method=merge --merge-by-name -I GCF_001465965.1_Pdom.bed > GCF_001465965.1_Pdom_merged.bed
 
-  #Filter bed file to include only the chromosomes where apamin orthologs are present
     grep -Fwf apamin_orthologs GCF_001465965.1_Pdom_merged.bed > GCF_001465965.1_Pdom_merged_filtered.bed
 
     ## rename with array the gene duplicates and rename chromosomes to add the species id and clean up
@@ -346,13 +337,11 @@ _Polistes dominula_
 
 _Camponotus floridanus_
 
-
     gff2bed < ../GCF_003227725.1_Cflo_v7.5_genomic.gff >  \
     GCF_003227725.1_Cflo.bed
 
     cgat bed2bed --method=merge --merge-by-name -I GCF_003227725.1_Cflo.bed > GCF_003227725.1_Cflo_merged.bed
 
-  #Filter bed file to include only the chromosomes where apamin orthologs are present
     grep -Fwf apamin_orthologs GCF_003227725.1_Cflo_merged.bed > GCF_003227725.1_Cflo_merged_filtered.bed
 
     ## rename with array the gene duplicates and rename chromosomes to add the species id and clean up
@@ -369,7 +358,6 @@ _Osmia bicornis_
 
     cgat bed2bed --method=merge --merge-by-name -I GCF_004153925.1_Obicornis.bed > GCF_004153925.1_Obicornis_merged.bed
 
-  #Filter bed file to include only the chromosomes where apamin orthologs are present
     grep -Fwf apamin_orthologs GCF_004153925.1_Obicornis_merged.bed > GCF_004153925.1_Obicornis_merged_filtered.bed
 
     ## rename with array the gene duplicates and rename chromosomes to add the species id and clean up
@@ -386,7 +374,6 @@ _Nasonia vitripennis_
 
     cgat bed2bed --method=merge --merge-by-name -I GCF_009193385.2_Nvit_psr.bed > GCF_009193385.2_Nvit_psr_merged.bed
 
-  #Filter bed file to include only the chromosomes where apamin orthologs are present
     grep -Fwf apamin_orthologs GCF_009193385.2_Nvit_psr_merged.bed > GCF_009193385.2_Nvit_psr_merged_filtered.bed
 
     ## rename with array the gene duplicates and rename chromosomes to add the species id and clean up
@@ -403,7 +390,6 @@ _Bombus vosnesenskii_
 
     cgat bed2bed --method=merge --merge-by-name -I GCF_011952255.1_Bvos_JDL3184-5.bed > GCF_011952255.1_Bvos_JDL3184-5_merged.bed
 
-  #Filter bed file to include only the chromosomes where apamin orthologs are present
     grep -Fwf apamin_orthologs GCF_011952255.1_Bvos_JDL3184-5_merged.bed > GCF_011952255.1_Bvos_JDL3184-5_merged_filtered.bed
 
     ## rename with array the gene duplicates and rename chromosomes to add the species id and clean up
@@ -420,7 +406,6 @@ _Vespa mandarinia_
 
     cgat bed2bed --method=merge --merge-by-name -I GCF_014083535.2_V.mandarinia_Nanaimo.bed > GCF_014083535.2_V.mandarinia_Nanaimo_merged.bed
 
-    #Filter bed file to include only the chromosomes where apamin orthologs are present
     grep -Fwf apamin_orthologs GCF_014083535.2_V.mandarinia_Nanaimo_merged.bed > GCF_014083535.2_V.mandarinia_Nanaimo_merged_filtered.bed
 
     ## rename with array the gene duplicates and rename chromosomes to add the species id and clean up
@@ -452,8 +437,6 @@ Put all MCScanX files on the same folder
 
     cp 201230_apamin_flank/blast_results_duplicated.blast 201231_mcscan_files/apamin.blast
     cp 201231_gff_files/merged_gff_files_eddited.gff 201231_mcscan_files/apamin.gff
-
-
 
 Run MCScanX
 
@@ -489,15 +472,7 @@ Reformulate the results file to use on R
 Prepare the bed file to import on r
 
 
-        #_Apis mellifera_
-
     cgat bed2bed --method=merge --merge-by-name -I  GCF_003254395.2_Amel_HAv3.bed > GCF_003254395.2_Amel_HAv3_cds_filtered_merged.bed
-
-    nano apis_chr
-
-        NC_037649.1     0 11514234 NC_037638.1      .       +       Gnomon  region     0       ID=NC_037638.1:1..27754200;Dbxref=taxon:7460;Name=LG1;collection-date=2003;country=USA;gbkey=Src;genome=chromosome;isolation-source=bee hive;linkage-group=LG1;mol_type=genomic DNA;sex=male;strain=DH4;tissue-type=whole body
-
-    cat apis_chr GCF_003254395.2_Amel_HAv3_cds_filtered_merged.bed > GCF_003254395.2_Amel_HAv3_cds_filtered_merged_filtered.bed
 
 Obtain gene list adjacent to apamin and MCD
 
@@ -506,10 +481,7 @@ Obtain gene list adjacent to apamin and MCD
     awk '{print $4}' GCF_003254395.2_Amel_HAv3.1_genomic_merged_flanks_filtered_mcscan.bed |  \
     cut -d , -f2 | sort | uniq > apis_flanking_genes_filtered_mcscan
 
-
      grep -Fwf apis_flanking_genes_filtered_mcscan 201230_apamin_flank/blast_results.blast > 201230_apamin_flank/blast_results_flank_filtered.blast
-
-201230_apamin_flank/blast_results.blast
 
         #_Apis florea_
 
@@ -529,7 +501,6 @@ Obtain gene list adjacent to apamin and MCD
         cgat bed2bed --method=merge --merge-by-name -I GCF_000220905.1_MROT.bed > GCF_000220905.1_MROT_cds_filtered_merged.bed
 
         #_Apis dorsata_
-
 
         cgat bed2bed --method=merge --merge-by-name -I GCF_000469605.1_Apis_dorsata.bed > GCF_000469605.1_Apis_dorsata_cds_filtered_merged.bed
 
