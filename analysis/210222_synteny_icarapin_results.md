@@ -1,4 +1,4 @@
-# Identifying Apamin and MCD orthologs using synteny
+# Identifying Icarapin orthologs using synteny
 
 
 First Obtain flanking genes from the bed files
@@ -15,7 +15,7 @@ First Obtain flanking genes from the bed files
     grep -e "cds-" GCF_003254395.2_Amel_HAv3.1_genomic_merged.bed |  \
         sed 's/cds-//g' > GCF_003254395.2_Amel_HAv3.1_genomic_merged_flank.bed
 
-    grep -C18 -E 'NP_001011611.2|NP_001011612.1' GCF_003254395.2_Amel_HAv3.1_genomic_merged_flank.bed  \
+    grep -C18 -E 'LOC503505' GCF_003254395.2_Amel_HAv3.1_genomic_merged_flank.bed  \
     > GCF_003254395.2_Amel_HAv3.1_genomic_merged_flanks.bed            ##grep the flanking genes
 
 
@@ -32,114 +32,114 @@ Filter the select genes from the fasta file
 
     makeblastdb -in ../GCF_003254395.2_Amel_HAv3.1.flank.fasta \
     -input_type fasta -dbtype prot \
-    -title apis_apamin_flanks -out apis_apamin_flanks
+    -title apis_icarapin_flanks -out apis_icarapin_flanks
 
 
     cd ../
-    mkdir 201230_apamin_flank
+    mkdir 201230_icarapin_flank
 
     ## the program recommends using the outdated NCBI BLAST.
     ## However, BLAST+ has several improvements over the legacy BLAST applications.
 
     blastp -num_threads 8 -query ../GCF_003254395.2_Amel_HAv3.1_protein.faa \
-    -db 201230_blast_results_orthologs/apis_apamin_flanks \
-    -out 201230_apamin_flank/Apis_mellifera \
+    -db 201230_blast_results_orthologs/apis_icarapin_flanks \
+    -out 201230_icarapin_flank/Apis_mellifera \
     -outfmt 6 \
     -evalue 0.05  -max_target_seqs 6
 
     blastp -num_threads 8 -query ../GCF_000184785.3_Aflo_1.1_protein.faa \
-    -db 201230_blast_results_orthologs/apis_apamin_flanks \
-    -out 201230_apamin_flank/Apis_florea \
+    -db 201230_blast_results_orthologs/apis_icarapin_flanks \
+    -out 201230_icarapin_flank/Apis_florea \
     -outfmt 6 \
     -evalue 0.05  -max_target_seqs 6
 
     blastp -num_threads 8 -query ../GCF_000188075.2_Si_gnH_protein.faa \
-    -db 201230_blast_results_orthologs/apis_apamin_flanks \
-    -out 201230_apamin_flank/Solenopsis_invicta \
+    -db 201230_blast_results_orthologs/apis_icarapin_flanks \
+    -out 201230_icarapin_flank/Solenopsis_invicta \
     -outfmt 6 \
     -evalue 0.05  -max_target_seqs 6
 
     blastp -num_threads 8 -query ../GCF_000214255.1_Bter_1.0_protein.faa \
-    -db 201230_blast_results_orthologs/apis_apamin_flanks \
-    -out 201230_apamin_flank/Bombus_terrestris \
+    -db 201230_blast_results_orthologs/apis_icarapin_flanks \
+    -out 201230_icarapin_flank/Bombus_terrestris \
     -outfmt 6 \
     -evalue 0.05  -max_target_seqs 6
 
     blastp -num_threads 8 -query ../GCF_000220905.1_MROT_1.0_protein.faa \
-    -db 201230_blast_results_orthologs/apis_apamin_flanks \
-    -out 201230_apamin_flank/Megachile_rotundata \
+    -db 201230_blast_results_orthologs/apis_icarapin_flanks \
+    -out 201230_icarapin_flank/Megachile_rotundata \
     -outfmt 6 \
     -evalue 0.05  -max_target_seqs 6
 
     blastp -num_threads 8 -query ../GCF_000469605.1_Apis_dorsata_1.3_protein.faa \
-    -db 201230_blast_results_orthologs/apis_apamin_flanks \
-    -out 201230_apamin_flank/Apis_dorsata \
+    -db 201230_blast_results_orthologs/apis_icarapin_flanks \
+    -out 201230_icarapin_flank/Apis_dorsata \
     -outfmt 6 \
     -evalue 0.05  -max_target_seqs 6
 
     blastp -num_threads 8 -query ../GCF_001263275.1_ASM126327v1_protein.faa \
-    -db 201230_blast_results_orthologs/apis_apamin_flanks \
-    -out 201230_apamin_flank/Habropoda_laboriosa \
+    -db 201230_blast_results_orthologs/apis_icarapin_flanks \
+    -out 201230_icarapin_flank/Habropoda_laboriosa \
     -outfmt 6 \
     -evalue 0.05  -max_target_seqs 6
 
     blastp -num_threads 8 -query ../GCF_001313835.1_ASM131383v1_protein.faa \
-    -db 201230_blast_results_orthologs/apis_apamin_flanks \
-    -out 201230_apamin_flank/Polistes_canadensis \
+    -db 201230_blast_results_orthologs/apis_icarapin_flanks \
+    -out 201230_icarapin_flank/Polistes_canadensis \
     -outfmt 6 \
     -evalue 0.05  -max_target_seqs 6
 
     blastp -num_threads 8 -query ../GCF_001442555.1_ACSNU-2.0_protein.faa \
-    -db 201230_blast_results_orthologs/apis_apamin_flanks \
-    -out 201230_apamin_flank/Apis_cerana \
+    -db 201230_blast_results_orthologs/apis_icarapin_flanks \
+    -out 201230_icarapin_flank/Apis_cerana \
     -outfmt 6 \
     -evalue 0.05  -max_target_seqs 6
 
     blastp -num_threads 8 -query ../GCF_001465965.1_Pdom_r1.2_protein.faa \
-    -db 201230_blast_results_orthologs/apis_apamin_flanks \
-    -out 201230_apamin_flank/Polistes_dominula \
+    -db 201230_blast_results_orthologs/apis_icarapin_flanks \
+    -out 201230_icarapin_flank/Polistes_dominula \
     -outfmt 6 \
     -evalue 0.05  -max_target_seqs 6
 
     blastp -num_threads 8 -query ../GCF_003227725.1_Cflo_v7.5_protein.faa \
-    -db 201230_blast_results_orthologs/apis_apamin_flanks \
-    -out 201230_apamin_flank/Camponotus_floridanus \
+    -db 201230_blast_results_orthologs/apis_icarapin_flanks \
+    -out 201230_icarapin_flank/Camponotus_floridanus \
     -outfmt 6 \
     -evalue 0.05  -max_target_seqs 6
 
     blastp -num_threads 8 -query ../GCF_004153925.1_Obicornis_v3_protein.faa \
-    -db 201230_blast_results_orthologs/apis_apamin_flanks \
-    -out 201230_apamin_flank/Osmia_bicornis \
+    -db 201230_blast_results_orthologs/apis_icarapin_flanks \
+    -out 201230_icarapin_flank/Osmia_bicornis \
     -outfmt 6 \
     -evalue 0.05  -max_target_seqs 6
 
     blastp -num_threads 8 -query ../GCF_009193385.2_Nvit_psr_1.1_protein.faa \
-    -db 201230_blast_results_orthologs/apis_apamin_flanks \
-    -out 201230_apamin_flank/Nasonia_vitripennis \
+    -db 201230_blast_results_orthologs/apis_icarapin_flanks \
+    -out 201230_icarapin_flank/Nasonia_vitripennis \
     -outfmt 6 \
     -evalue 0.05  -max_target_seqs 6
 
     blastp -num_threads 8 -query ../GCF_011952255.1_Bvos_JDL3184-5_v1.1_protein.faa \
-    -db 201230_blast_results_orthologs/apis_apamin_flanks \
-    -out 201230_apamin_flank/Bombus_vosnesenskii \
+    -db 201230_blast_results_orthologs/apis_icarapin_flanks \
+    -out 201230_icarapin_flank/Bombus_vosnesenskii \
     -outfmt 6 \
     -evalue 0.05  -max_target_seqs 6
 
     blastp -num_threads 8 -query ../GCF_014083535.2_V.mandarinia_Nanaimo_p1.0_protein.faa \
-    -db 201230_blast_results_orthologs/apis_apamin_flanks \
-    -out 201230_apamin_flank/Vespa_mandarinia \
+    -db 201230_blast_results_orthologs/apis_icarapin_flanks \
+    -out 201230_icarapin_flank/Vespa_mandarinia \
     -outfmt 6 \
     -evalue 0.05  -max_target_seqs 6
 
 Concatenate all blast results
 
-    rm 201230_apamin_flank/blast_results.blast
-    cat 201230_apamin_flank/* > 201230_apamin_flank/blast_results.blast
+    rm 201230_icarapin_flank/blast_results.blast
+    cat 201230_icarapin_flank/* > 201230_icarapin_flank/blast_results.blast
 
-Get orthologs for apamin
+Get orthologs for icarapin
 
-      awk '{print $2}' 201230_apamin_flank/blast_results.blast > apamin_apis
-      awk '{print $1}' 201230_apamin_flank/blast_results.blast > apamin_orthologs
+      awk '{print $2}' 201230_icarapin_flank/blast_results.blast > icarapin_apis
+      awk '{print $1}' 201230_icarapin_flank/blast_results.blast > icarapin_orthologs
 
      #Activate bioconda
 
@@ -148,7 +148,7 @@ Get orthologs for apamin
      rm 201231_gff_files/* # make sure other files are deleted
 
 
-Most insect genomes are just scafolds, and their names are not compatible with MCScanX, so thelables were replaced by a fixed number. Also, append the bed file to include only the chromosomes where apamin orthologs are present
+Most insect genomes are just scafolds, and their names are not compatible with MCScanX, so thelables were replaced by a fixed number. Also, append the bed file to include only the chromosomes where icarapin orthologs are present
 
 _Apis mellifera_
 
@@ -158,8 +158,8 @@ _Apis mellifera_
      cgat bed2bed --method=merge --merge-by-name -I   \
      GCF_003254395.2_Amel_HAv3._1.bed > GCF_003254395.2_Amel_HAv3._1_merged.bed
 
-     #Filter bed file to include only the chromosomes where apamin orthologs are present
-     grep -Fwf apamin_orthologs GCF_003254395.2_Amel_HAv3._1_merged.bed   \
+     #Filter bed file to include only the chromosomes where icarapin orthologs are present
+     grep -Fwf icarapin_orthologs GCF_003254395.2_Amel_HAv3._1_merged.bed   \
      > GCF_003254395.2_Amel_HAv3._1_merged_filtered.bed
 
      ## rename with array the gene duplicates and rename chromosomes to add the species id and clean up
@@ -178,7 +178,7 @@ _Apis florea_
      cgat bed2bed --method=merge --merge-by-name -I GCF_000184785.3_Aflo_1.1.bed   \
      > GCF_000184785.3_Aflo_1.1_merged.bed
 
-     grep -Fwf apamin_orthologs GCF_000184785.3_Aflo_1.1_merged.bed   \
+     grep -Fwf icarapin_orthologs GCF_000184785.3_Aflo_1.1_merged.bed   \
      > GCF_000184785.3_Aflo_1.1_merged_filtered.bed
 
      ## rename with array the gene duplicates and rename chromosomes to add the species id and clean up
@@ -196,7 +196,7 @@ _Solenopsis invicta_
 
     cgat bed2bed --method=merge --merge-by-name -I GCF_000188075.2_Si_gnH.bed > GCF_000188075.2_Si_gnH_merged.bed
 
-    grep -Fwf apamin_orthologs GCF_000188075.2_Si_gnH_merged.bed > GCF_000188075.2_Si_gnH_merged_filtered.bed
+    grep -Fwf icarapin_orthologs GCF_000188075.2_Si_gnH_merged.bed > GCF_000188075.2_Si_gnH_merged_filtered.bed
 
     ## rename with array the gene duplicates and rename chromosomes to add the species id and clean up
 
@@ -213,7 +213,7 @@ _Bombus terrestris_
 
     cgat bed2bed --method=merge --merge-by-name -I GCF_000214255.1_Bter.bed > GCF_000214255.1_Bter_merged.bed
 
-    grep -Fwf apamin_orthologs GCF_000214255.1_Bter_merged.bed > GCF_000214255.1_Bter_merged_filtered.bed
+    grep -Fwf icarapin_orthologs GCF_000214255.1_Bter_merged.bed > GCF_000214255.1_Bter_merged_filtered.bed
 
     ## rename with array the gene duplicates and rename chromosomes to add the species id and clean up
 
@@ -229,7 +229,7 @@ _Megachile rotundata_
 
     cgat bed2bed --method=merge --merge-by-name -I GCF_000220905.1_MROT.bed > GCF_000220905.1_MROT_merged.bed
 
-    grep -Fwf apamin_orthologs GCF_000220905.1_MROT_merged.bed > GCF_000220905.1_MROT_merged_filtered.bed
+    grep -Fwf icarapin_orthologs GCF_000220905.1_MROT_merged.bed > GCF_000220905.1_MROT_merged_filtered.bed
 
     ## rename with array the gene duplicates and rename chromosomes to add the species id and clean up
 
@@ -246,7 +246,7 @@ _Apis dorsata_
     cgat bed2bed --method=merge --merge-by-name -I GCF_000469605.1_Apis_dorsata.bed   \
     > GCF_000469605.1_Apis_dorsata_merged.bed
 
-    grep -Fwf apamin_orthologs GCF_000469605.1_Apis_dorsata_merged.bed   \
+    grep -Fwf icarapin_orthologs GCF_000469605.1_Apis_dorsata_merged.bed   \
     > GCF_000469605.1_Apis_dorsata_merged_filtered.bed
 
     ## rename with array the gene duplicates and rename chromosomes to add the species id and clean up
@@ -264,7 +264,7 @@ _Habropoda laboriosa_
     cgat bed2bed --method=merge --merge-by-name -I GCF_001263275.1_ASM126327v1.bed   \
     > GCF_001263275.1_ASM126327v1_merged.bed
 
-    grep -Fwf apamin_orthologs GCF_001263275.1_ASM126327v1_merged.bed   \
+    grep -Fwf icarapin_orthologs GCF_001263275.1_ASM126327v1_merged.bed   \
     > GCF_001263275.1_ASM126327v1_merged_filtered.bed
 
     ## rename with array the gene duplicates and rename chromosomes to add the species id and clean up
@@ -282,7 +282,7 @@ _Polistes canadensis_
     cgat bed2bed --method=merge --merge-by-name -I GCF_001313835.1_ASM131383v1.bed   \
     > GCF_001313835.1_ASM131383v1_merged.bed
 
-    grep -Fwf apamin_orthologs GCF_001313835.1_ASM131383v1_merged.bed   \
+    grep -Fwf icarapin_orthologs GCF_001313835.1_ASM131383v1_merged.bed   \
     > GCF_001313835.1_ASM131383v1_merged_filtered.bed
 
     ## rename with array the gene duplicates and rename chromosomes to add the species id and clean up
@@ -299,7 +299,7 @@ _Apis cerana_
 
     cgat bed2bed --method=merge --merge-by-name -I GCF_001442555.1_ACSNU.bed > GCF_001442555.1_ACSNU_merged.bed
 
-    grep -Fwf apamin_orthologs GCF_001442555.1_ACSNU_merged.bed > GCF_001442555.1_ACSNU_merged_filtered.bed
+    grep -Fwf icarapin_orthologs GCF_001442555.1_ACSNU_merged.bed > GCF_001442555.1_ACSNU_merged_filtered.bed
 
     ## rename with array the gene duplicates and rename chromosomes to add the species id and clean up
 
@@ -315,7 +315,7 @@ _Polistes dominula_
 
     cgat bed2bed --method=merge --merge-by-name -I GCF_001465965.1_Pdom.bed > GCF_001465965.1_Pdom_merged.bed
 
-    grep -Fwf apamin_orthologs GCF_001465965.1_Pdom_merged.bed > GCF_001465965.1_Pdom_merged_filtered.bed
+    grep -Fwf icarapin_orthologs GCF_001465965.1_Pdom_merged.bed > GCF_001465965.1_Pdom_merged_filtered.bed
 
     ## rename with array the gene duplicates and rename chromosomes to add the species id and clean up
 
@@ -331,7 +331,7 @@ _Camponotus floridanus_
 
     cgat bed2bed --method=merge --merge-by-name -I GCF_003227725.1_Cflo.bed > GCF_003227725.1_Cflo_merged.bed
 
-    grep -Fwf apamin_orthologs GCF_003227725.1_Cflo_merged.bed > GCF_003227725.1_Cflo_merged_filtered.bed
+    grep -Fwf icarapin_orthologs GCF_003227725.1_Cflo_merged.bed > GCF_003227725.1_Cflo_merged_filtered.bed
 
     ## rename with array the gene duplicates and rename chromosomes to add the species id and clean up
 
@@ -348,7 +348,7 @@ _Osmia bicornis_
     cgat bed2bed --method=merge --merge-by-name -I GCF_004153925.1_Obicornis.bed  \
     > GCF_004153925.1_Obicornis_merged.bed
 
-    grep -Fwf apamin_orthologs GCF_004153925.1_Obicornis_merged.bed > GCF_004153925.1_Obicornis_merged_filtered.bed
+    grep -Fwf icarapin_orthologs GCF_004153925.1_Obicornis_merged.bed > GCF_004153925.1_Obicornis_merged_filtered.bed
 
     ## rename with array the gene duplicates and rename chromosomes to add the species id and clean up
 
@@ -364,7 +364,7 @@ _Nasonia vitripennis_
 
     cgat bed2bed --method=merge --merge-by-name -I GCF_009193385.2_Nvit_psr.bed > GCF_009193385.2_Nvit_psr_merged.bed
 
-    grep -Fwf apamin_orthologs GCF_009193385.2_Nvit_psr_merged.bed > GCF_009193385.2_Nvit_psr_merged_filtered.bed
+    grep -Fwf icarapin_orthologs GCF_009193385.2_Nvit_psr_merged.bed > GCF_009193385.2_Nvit_psr_merged_filtered.bed
 
     ## rename with array the gene duplicates and rename chromosomes to add the species id and clean up
 
@@ -381,7 +381,7 @@ _Bombus vosnesenskii_
     cgat bed2bed --method=merge --merge-by-name -I GCF_011952255.1_Bvos_JDL3184-5.bed   \
     > GCF_011952255.1_Bvos_JDL3184-5_merged.bed
 
-    grep -Fwf apamin_orthologs GCF_011952255.1_Bvos_JDL3184-5_merged.bed   \
+    grep -Fwf icarapin_orthologs GCF_011952255.1_Bvos_JDL3184-5_merged.bed   \
     > GCF_011952255.1_Bvos_JDL3184-5_merged_filtered.bed
 
     ## rename with array the gene duplicates and rename chromosomes to add the species id and clean up
@@ -399,7 +399,7 @@ _Vespa mandarinia_
     cgat bed2bed --method=merge --merge-by-name -I GCF_014083535.2_V.mandarinia_Nanaimo.bed   \
     > GCF_014083535.2_V.mandarinia_Nanaimo_merged.bed
 
-    grep -Fwf apamin_orthologs GCF_014083535.2_V.mandarinia_Nanaimo_merged.bed  \
+    grep -Fwf icarapin_orthologs GCF_014083535.2_V.mandarinia_Nanaimo_merged.bed  \
     > GCF_014083535.2_V.mandarinia_Nanaimo_merged_filtered.bed
 
     ## rename with array the gene duplicates and rename chromosomes to add the species id and clean up
@@ -429,16 +429,16 @@ Put all MCScanX files on the same folder
     rm -rf 201231_mcscan_files
     mkdir 201231_mcscan_files
 
-    cp 201230_apamin_flank/blast_results_duplicated.blast 201231_mcscan_files/apamin.blast
-    cp 201231_gff_files/merged_gff_files_eddited.gff 201231_mcscan_files/apamin.gff
+    cp 201230_icarapin_flank/blast_results_duplicated.blast 201231_mcscan_files/icarapin.blast
+    cp 201231_gff_files/merged_gff_files_eddited.gff 201231_mcscan_files/icarapin.gff
 
 Run MCScanX
 
-    MCScanX -s 2 -e 0.05 -b 2 201231_mcscan_files/apamin
+    MCScanX -s 2 -e 0.05 -b 2 201231_mcscan_files/icarapin
 
 Reformulate the results file to use on R
 
-    less 201231_mcscan_files/apamin.collinearity | \
+    less 201231_mcscan_files/icarapin.collinearity | \
     cut -f 2-  | \
     awk 'NR > 11 { print }' | \
     sed 's/## Alignment .*am1&/###Apis mellifera /g'  | \
@@ -457,10 +457,10 @@ Reformulate the results file to use on R
     sed 's/nv1.*/Nasonia_vitripennis/g'  | \
     sed 's/bv1.*/Bombus_vosnesenskii/g'  | \
     sed 's/vm1.*/Vespa_mandarinia/g'  > \
-    201231_mcscan_files/apamin.collinearity_filtered
+    201231_mcscan_files/icarapin.collinearity_filtered
 
-    grep '###' 201231_mcscan_files/apamin.collinearity_filtered  | \
-    sed 's/###//g' > 201231_mcscan_files/apamin.collinearity_filtered_species
+    grep '###' 201231_mcscan_files/icarapin.collinearity_filtered  | \
+    sed 's/###//g' > 201231_mcscan_files/icarapin.collinearity_filtered_species
 
 
 Prepare the bed file to import on r
@@ -469,15 +469,15 @@ Prepare the bed file to import on r
     cgat bed2bed --method=merge --merge-by-name -I GCF_003254395.2_Amel_HAv3.bed  \
     > GCF_003254395.2_Amel_HAv3_cds_filtered_merged.bed
 
-Obtain gene list adjacent to apamin and MCD
+Obtain gene list adjacent to icarapin and MCD
 
-    grep -A3 -A3 -E 'NP_001011611.2|NP_001011612.1' GCF_003254395.2_Amel_HAv3.1_genomic_merged_flank.bed> GCF_003254395.2_Amel_HAv3.1_genomic_merged_flanks_filtered_mcscan.bed  ##grep the flanking genes
+    grep -A3 -A3 -E 'LOC503505' GCF_003254395.2_Amel_HAv3.1_genomic_merged_flank.bed> GCF_003254395.2_Amel_HAv3.1_genomic_merged_flanks_filtered_mcscan.bed  ##grep the flanking genes
 
     awk '{print $4}' GCF_003254395.2_Amel_HAv3.1_genomic_merged_flanks_filtered_mcscan.bed |  \
     cut -d , -f2 | sort | uniq > apis_flanking_genes_filtered_mcscan
 
-     grep -Fwf apis_flanking_genes_filtered_mcscan 201230_apamin_flank/blast_results.blast   \
-     > 201230_apamin_flank/blast_results_flank_filtered.blast
+     grep -Fwf apis_flanking_genes_filtered_mcscan 201230_icarapin_flank/blast_results.blast   \
+     > 201230_icarapin_flank/blast_results_flank_filtered.blast
 
         #_Apis florea_
 
