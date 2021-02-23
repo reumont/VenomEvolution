@@ -1,0 +1,435 @@
+---
+title: "Data analysis"
+author: "From: Xylocopa violacea venom as a way to open our eyes to the beauty of bee venom
+  evolution"
+date: "03/11/2020"
+output:
+  html_document:
+    code_download: true
+    theme: flatly
+    workflowr::wflow_html:
+    code_folding: "hide"
+    toc: true
+    toc_float: true
+    toc_collapsed: true
+toc_depth: 3
+number_sections: true
+
+---
+<br>
+This document was written in R Markdown, and translated into html using the R package knitr. To see the codes used to produce all tables and figures press the button *Code* in the top of each chunk. Alternativelly, it also possible to see all codes used by pressing Code located at the top of the document.
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(cache=TRUE, 
+                      fig.path='../201127_new_figures/')
+```
+<br>
+
+## Load R libraries
+
+```{r message=FALSE, warning=FALSE}
+library(tidyverse)
+library(limma)
+library(ggplot2)
+library(readr)
+library(NOISeq)
+library(data.table)
+library(magrittr)
+library(kableExtra)
+library(ggpubr)
+library(tximport)
+library(stringi)
+library(dplyr)
+```
+
+```{r include=FALSE}
+setwd("~/Dropbox/Pesquisa/Post-doc/Ivan_research/200722_venom_transcriptome/scripts")
+```
+
+# Table of samples
+
+Before investigate Xylocopa venom genes, we will import kallisto results, replacing transcript names with their respective protein id. For each data set, transcripts with the same protein (as identified by BLAST) were summed. We also removed all genes without without reads.
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+# Import data set gene name 
+
+xyoc_UniPr<- read_delim("../Bee_venom_evo_dataset/Xylocopa/03_Xyvi_Vg.ORP.fasta.pep_UniPr.blastp.outfmt6", 
+    "\t", escape_double = FALSE, col_names = FALSE, 
+    trim_ws = TRUE)%>%
+   dplyr::select("gene_id" = "X1", "protein_id" = "X2" )
+
+xyoc_ToxPr<- read_delim("../Bee_venom_evo_dataset/Xylocopa/03_Xyvi_Vg.ORP.fasta.pep_ToxPr.blastp.outfmt6", 
+    "\t", escape_double = FALSE, col_names = FALSE, 
+    trim_ws = TRUE)%>%
+   dplyr::select("gene_id" = "X1", "protein_id" = "X2" )
+
+xyoc_Apoc<- read_delim("../Bee_venom_evo_dataset/Xylocopa/03_Xyvi_Vg.ORP.fasta.pep_Apocrita.blastp.outfmt6", 
+    "\t", escape_double = FALSE, col_names = FALSE, 
+    trim_ws = TRUE)%>%
+   dplyr::select("gene_id" = "X1", "protein_id" = "X2" )
+
+## function to clean up Blast results separating protein description from the origin species
+clean_blast_results <- function(blast_table){
+   blast_table<- blast_table %>%
+      separate(protein_id, c("protein_id", "species"), "OS=") 
+   blast_table$species <-  sub("OX=.*", " ", blast_table$species)
+   blast_table$gene_id <-  sub(".p.*", "", blast_table$gene_id)
+   blast_table$protein_id<- trimws(blast_table$protein_id) ##remove space after last string
+   blast_table$species<- trimws(blast_table$species)
+   blast_table$gene_id<- trimws(blast_table$gene_id)
+   blast_table <- as_tibble(blast_table)
+}
+
+## negative function
+'%ni%' <- Negate('%in%')  
+
+xyoc_UniPr<- clean_blast_results(xyoc_UniPr)
+xyoc_ToxPr<- clean_blast_results(xyoc_ToxPr)
+xyoc_Apoc<- clean_blast_results(xyoc_Apoc)
+
+### Create gene list by merging all tables following the hierarchy order:
+### Apocrita > ToxProt > Uniprot
+
+#### Filter all "Uncharacterized protein" and create a separate data table. Use Apocrita and ToxProt data set only as Uniprot information won't overwrite the other descriptions. 
+xyoc_Apoc_unc<- xyoc_Apoc %>%
+   filter(str_detect(protein_id, pattern="Uncharacterized protein")) ## no Uncharacterized protein
+xyoc_ToxPr_unc<- xyoc_ToxPr %>%
+   filter(str_detect(protein_id, pattern="Uncharacterized protein"))# # no Uncharacterized protein
+
+# Remove genes present in Apocrita from ToxProt and Uniprot.
+
+xyoc_ToxPr<- xyoc_ToxPr %>%
+   filter(gene_id %ni% xyoc_Apoc$gene_id)
+
+xyoc_UniPr<- xyoc_UniPr %>%
+   filter(gene_id %ni% xyoc_Apoc$gene_id)
+
+# Remove genes present in ToxProt from Uniprot.
+xyoc_UniPr<- xyoc_UniPr %>%
+   filter(gene_id %ni% xyoc_ToxPr$gene_id)
+
+## Create the protein data base by merging all data sets
+
+xyoc_proteins<- bind_rows(xyoc_Apoc, xyoc_ToxPr, xyoc_UniPr)
+
+txt2gene<- dplyr::select(xyoc_proteins, gene_id, protein_id )
+## Import gene expression 
+ 
+xyoc_path<-file.path("../Bee_venom_evo_dataset/Xylocopa", "Kallisto_output", 'abundance.h5')
+
+#Rename reads 
+names(xyoc_path) <- "Xylocopa_TPM"
+
+xyoc_list<- tximport(xyoc_path, type = "kallisto",
+                           txOut = TRUE,  #tx2gene = txt2gene, 
+                     countsFromAbundance = "scaledTPM")
+xyoc_expre<- xyoc_list$abundance %>%
+  as.data.frame() %>%
+  rownames_to_column(var="gene_id")
+
+## replace gene id with the protein description
+  
+xyoc_summary<- xyoc_expre %>%
+  left_join(xyoc_proteins, by = "gene_id" ) %>%
+  as_tibble() %>%
+  filter(!Xylocopa_TPM == 0) %>% ## remove genes without without reads
+  drop_na() %>%
+  group_by(protein_id) %>%
+  summarise(Xylocopa_TPM = sum(Xylocopa_TPM)) ## Sum genes that have the same protein ID
+
+# Import Halictus data set 
+
+
+Halictus_ToxPr<- read_delim("../Bee_venom_evo_dataset/Halictus/Ha_Vg6_5.ORP.fasta.pep_ToxPr.blastp.outfmt6", 
+                        "\t", escape_double = FALSE, col_names = FALSE, 
+                        trim_ws = TRUE)%>%
+   dplyr::select("gene_id" = "X1", "protein_id" = "X2" )
+
+Halictus_Apoc<- read_delim("../Bee_venom_evo_dataset/Halictus/Ha_Vg6_5.ORP.fasta.pep_Apocrita.blastp.outfmt6", 
+                       "\t", escape_double = FALSE, col_names = FALSE, 
+                       trim_ws = TRUE)%>%
+   dplyr::select("gene_id" = "X1", "protein_id" = "X2" )
+
+## Clean up Blast results table
+
+Halictus_ToxPr<- clean_blast_results(Halictus_ToxPr)
+Halictus_Apoc<- clean_blast_results(Halictus_Apoc)
+
+### Create gene list by merging all tables following the hierarchy order:
+### Apocrita > ToxProt
+#### Filter all "Uncharacterized protein" and create a separate data table. Use Apocrita data set only as ToxProt information won't overwrite the other descriptions. 
+Halictus_Apoc_unc<- Halictus_Apoc %>%
+   filter(str_detect(protein_id, pattern="Uncharacterized protein")) ## no Uncharacterized protein
+
+# Remove genes present in Apocrita from ToxProt.
+
+Halictus_ToxPr<- Halictus_ToxPr %>%
+   filter(gene_id %ni% Halictus_Apoc$gene_id)
+
+
+## Create the protein data base by merging all data sets
+
+Halictus_proteins<- bind_rows(Halictus_Apoc, Halictus_ToxPr)
+
+txt2gene<- dplyr::select(Halictus_proteins, gene_id, protein_id )
+## Import gene expression 
+
+Halictus_path<-file.path("../Bee_venom_evo_dataset/Halictus", "Kallisto_output", 'abundance.h5')
+
+#Rename reads 
+names(Halictus_path) <- "Halictus_TPM"
+
+Halictus_list<- tximport(Halictus_path, type = "kallisto",
+                     txOut = TRUE,  #tx2gene = txt2gene, 
+                     countsFromAbundance = "scaledTPM")
+Halictus_expre<- Halictus_list$abundance %>%
+   as.data.frame() %>%
+   rownames_to_column(var="gene_id")
+
+## replace gene id with the protein description
+
+
+#Halictus_expre$protein_id<- stri_replace_all_fixed(Halictus_expre$gene_id,
+#                                                   Halictus_proteins$gene_id, Halictus_proteins$protein_id,
+#                                                   vectorize_all = FALSE) 
+
+Halictus_summary<- Halictus_expre %>%
+   left_join(Halictus_proteins, by = "gene_id" ) %>%
+   as_tibble() %>%
+   filter(!Halictus_TPM == 0) %>% ## remove genes without without reads
+   drop_na() %>%
+   group_by(protein_id) %>%
+   summarise(Halictus_TPM = sum(Halictus_TPM)) ## Sum genes that have the same protein ID
+
+
+# Import data set gene name 
+
+apis_UniPr<- read_delim("../Bee_venom_evo_dataset/Apis/Apis.ORP.fasta.pep_UniPr.blastp.outfmt6", 
+                        "\t", escape_double = FALSE, col_names = FALSE, 
+                        trim_ws = TRUE)%>%
+   dplyr::select("gene_id" = "X1", "protein_id" = "X2" )
+
+apis_ToxPr<- read_delim("../Bee_venom_evo_dataset/Apis/Apis.ORP.fasta.pep_ToxPr.blastp.outfmt6", 
+                        "\t", escape_double = FALSE, col_names = FALSE, 
+                        trim_ws = TRUE)%>%
+   dplyr::select("gene_id" = "X1", "protein_id" = "X2" )
+
+apis_Apoc<- read_delim("../Bee_venom_evo_dataset/Apis/Apis.ORP.fasta.pep_Apocrita.blastp.outfmt6", 
+                       "\t", escape_double = FALSE, col_names = FALSE, 
+                       trim_ws = TRUE)%>%
+   dplyr::select("gene_id" = "X1", "protein_id" = "X2" )
+
+
+apis_UniPr<- clean_blast_results(apis_UniPr)
+apis_ToxPr<- clean_blast_results(apis_ToxPr)
+apis_Apoc<- clean_blast_results(apis_Apoc)
+
+### Create gene list by merging all tables following the hierarchy order:
+### Apocrita > ToxProt > Uniprot
+
+#### Filter all "Uncharacterized protein" and create a separate data table. Use Apocrita and ToxProt data set only as Uniprot information won't overwrite the other descriptions. 
+apis_Apoc_unc<- apis_Apoc %>%
+   filter(str_detect(protein_id, pattern="Uncharacterized protein")) ## no Uncharacterized protein
+apis_ToxPr_unc<- apis_ToxPr %>%
+   filter(str_detect(protein_id, pattern="Uncharacterized protein"))# # no Uncharacterized protein
+
+# Remove genes present in Apocrita from ToxProt and Uniprot.
+
+apis_ToxPr<- apis_ToxPr %>%
+   filter(gene_id %ni% apis_Apoc$gene_id)
+
+apis_UniPr<- apis_UniPr %>%
+   filter(gene_id %ni% apis_Apoc$gene_id)
+
+# Remove genes present in ToxProt from Uniprot.
+apis_UniPr<- apis_UniPr %>%
+   filter(gene_id %ni% apis_ToxPr$gene_id)
+
+## Create the protein data base by merging all data sets
+
+apis_proteins<- bind_rows(apis_Apoc, apis_ToxPr, apis_UniPr)
+
+txt2gene<- dplyr::select(apis_proteins, gene_id, protein_id )
+## Import gene expression 
+
+apis_path<-file.path("../Bee_venom_evo_dataset/Apis", "Kallisto_output", 'abundance.h5')
+
+#Rename reads 
+names(apis_path) <- "Apis_TPM"
+
+apis_list<- tximport(apis_path, type = "kallisto",
+                     txOut = TRUE,  #tx2gene = txt2gene, 
+                     countsFromAbundance = "scaledTPM")
+apis_expre<- apis_list$abundance %>%
+   as.data.frame() %>%
+   rownames_to_column(var="gene_id")
+
+## replace gene id with the protein description
+
+apis_summary<- apis_expre %>%
+    left_join(apis_proteins, by = "gene_id" ) %>%
+    as_tibble() %>%
+    filter(!Apis_TPM == 0) %>% ## remove genes without without reads
+    drop_na() %>%
+    group_by(protein_id) %>%
+    summarise(Apis_TPM = sum(Apis_TPM)) ## Sum genes that have the same protein ID
+
+all_species_transcripts <- apis_summary %>%
+  full_join(Halictus_summary, by = "protein_id") %>%
+  full_join(xyoc_summary, by = "protein_id")
+
+write.csv(all_species_transcripts,"../Bee_venom_evo_dataset/all_species_transcripts.csv")
+
+all_species_transcript<- as.data.frame(all_species_transcripts)
+
+rownames(all_species_transcript)<-all_species_transcript$protein_id
+all_species_transcript$protein_id = NULL
+
+mdsPlot <- plotMDS(all_species_transcript)
+
+mdsPlot<- mdsPlot@.Data[[3]] %>%
+   as.data.frame() %>%
+   set_colnames(c('Dim1', 'Dim2')) %>%
+   rownames_to_column("sample_id") %>%
+   ggplot(aes(x = Dim1, y = Dim2, colour = sample_id)) +
+   geom_point(size = 4) + 
+   labs(x= "Component 1", y = "Component 2") +
+   theme(text = element_text(size=20)) +
+   theme_classic() +
+   scale_color_manual(values=c("Apis_TPM"     = "#078285", 
+                               "Halictus_TPM" = "#F1962C",
+                               "Xylocopa_TPM" = "#4A0933"),
+                      name = "Venom MDS", 
+                      labels = c("Apis","Halictus", "Xylocopa" ))
+```
+<br>
+```{r}
+mdsPlot
+```
+
+<br>
+*I added the MDS plot, but since there is only one sample per group I wouldn't recommend keeping it*
+<br>
+Obtain number of venom genes present in each specie
+```{r}
+all_species_transcripts %>%
+   set_colnames(c("protein_id", "Apis", "Halictus", "Xylocopa")) %>%
+   gather(species,TPM, Apis:Xylocopa, na.rm = T) %>% 
+   group_by(species) %>%
+   dplyr::count() %>%
+   set_colnames(c('Species', "Number of venom genes" )) %>%
+   kable() %>%
+   kable_styling(full_width = F)
+
+```
+
+# Common gene core
+
+Common gene core (raw number)
+```{r common_genes_raw_tpm, fig.width= 8, fig.height = 9}
+all_species_tr_plot<- all_species_transcripts %>%
+  drop_na() %>%## remove all rows without gene counts
+  arrange(desc(Xylocopa_TPM)) %>%
+   filter(!str_detect(protein_id,pattern="Uncharacterized protein"))
+
+
+all_species_tr_plot[1:20,]%>%
+  set_colnames(c("protein_id", "Apis", "Halictus", "Xylocopa")) %>%
+  gather(species,TPM, Apis:Xylocopa, na.rm = T) %>% 
+  ggplot(aes(x = protein_id, y = TPM,fill=species)) +
+  geom_bar(position="stack", stat="identity") +
+  labs(y= "Venom gland TPM", x = "Proteins") +
+  coord_flip()  + 
+  theme_bw() +
+  scale_fill_manual(values=c("Apis"     = "#078285", 
+                               "Halictus" = "#F1962C",
+                               "Xylocopa" = "#4A0933"),
+                     name = "") +
+  theme(panel.grid.major = element_blank(), 
+         panel.grid.minor = element_blank(),
+         plot.caption = element_text(hjust = 0),
+         text = element_text(size=12)) 
+```
+
+Common gene core (percentage)
+```{r common_genes_percent, fig.width= 8, fig.height = 9}
+all_species_tr_plot[1:20,]%>%
+  set_colnames(c("protein_id", "Apis", "Halictus", "Xylocopa")) %>%
+  gather(species,TPM, Apis:Xylocopa, na.rm = T) %>% 
+  ggplot(aes(x = protein_id, y = TPM,fill=species)) +
+  geom_bar(position = "fill",stat = "identity") +
+  labs(y= "Venom gland TPM", x = "Proteins") +
+  coord_flip()  + 
+  theme_bw() +
+  scale_fill_manual(values=c("Apis"     = "#078285", 
+                               "Halictus" = "#F1962C",
+                               "Xylocopa" = "#4A0933"),
+                     name = "") +
+    scale_y_continuous(labels = scales::percent_format())  +
+  theme(panel.grid.major = element_blank(), 
+         panel.grid.minor = element_blank(),
+         plot.caption = element_text(hjust = 0),
+         text = element_text(size=12)) 
+```
+
+# Xylocopa venom genes
+
+```{r Xylocopa_venom, fig.width= 8, fig.height = 9}
+all_species_transcripts <- all_species_transcripts %>%
+  arrange(desc(Xylocopa_TPM)) %>%
+   filter(!str_detect(protein_id,pattern="Uncharacterized protein"))
+
+all_species_transcripts[1:20,]%>%
+  set_colnames(c("protein_id", "Apis", "Halictus", "Xylocopa")) %>%
+  ggplot(aes(x = protein_id, y = Xylocopa)) +
+  geom_col(color = "#4A0933", fill = "#4A0933") +
+  labs(y= "Xylocopa venom gland TPM", x = "Proteins") +
+  coord_flip()  + 
+  theme_bw() +
+  theme(legend.position = "none", 
+         panel.grid.major = element_blank(), 
+         panel.grid.minor = element_blank(),
+         plot.caption = element_text(hjust = 0),
+         text = element_text(size=12)) 
+
+```
+
+# Apis venom genes
+
+```{r  Apis_venom, fig.width= 8, fig.height = 9}
+all_species_transcripts <- all_species_transcripts %>%
+  arrange(desc(Apis_TPM)) 
+
+all_species_transcripts[1:20,]%>%
+  set_colnames(c("protein_id", "Apis", "Halictus", "Xylocopa")) %>%
+  ggplot(aes(x = protein_id, y = Apis)) +
+  geom_col(color ="#078285", fill = "#078285") +
+  labs(y= "Apis venom gland TPM", x = "Proteins") +
+  coord_flip()  + 
+  theme_bw() +
+  theme(legend.position = "none", 
+         panel.grid.major = element_blank(), 
+         panel.grid.minor = element_blank(),
+         plot.caption = element_text(hjust = 0),
+         text = element_text(size=12)) 
+```
+
+# Halictus venom genes
+
+```{r Halictus_venom, fig.width= 8, fig.height = 9}
+all_species_transcripts <- all_species_transcripts %>%
+  arrange(desc(Halictus_TPM)) 
+
+all_species_transcripts[1:20,]%>%
+  set_colnames(c("protein_id", "Apis", "Halictus", "Xylocopa")) %>%
+  ggplot(aes(x = protein_id, y = Halictus)) +
+  geom_col(color ="#F1962C", fill = "#F1962C") +
+  labs(y= "Halictus venom gland TPM", x = "Proteins") +
+  coord_flip()  + 
+  theme_bw() +
+  theme(legend.position = "none", 
+         panel.grid.major = element_blank(), 
+         panel.grid.minor = element_blank(),
+         plot.caption = element_text(hjust = 0),
+         text = element_text(size=12)) 
+```
