@@ -36,6 +36,7 @@ library(NOISeq)
 library(data.table)
 library(magrittr)
 library(kableExtra)
+library(VennDiagram)
 library(ggpubr)
 library(tximport)
 library(stringi)
@@ -433,3 +434,38 @@ all_species_transcripts[1:20,]%>%
          plot.caption = element_text(hjust = 0),
          text = element_text(size=12)) 
 ```
+
+## Veen diagram 
+
+```{r}
+all_species_filtered <- all_species_transcripts %>%
+  set_colnames(c("protein_id", "Apis", "Halictus", "Xylocopa")) %>%
+  gather(species,TPM, Apis:Xylocopa, na.rm = T) 
+
+venn.diagram(
+  x = list(    
+     all_species_filtered %>% filter(species=="Apis" ) %>% pull(protein_id), 
+    all_species_filtered %>% filter(species=="Halictus" ) %>% pull(protein_id), 
+    all_species_filtered %>% filter(species=="Xylocopa" ) %>% pull(protein_id)), 
+  category.names = c("Apis (5,568)" , "Halictus (178)", "Xylocopa (9,058)"),
+  filename = '../201208_figures/venom_venn.png',
+  output = TRUE ,
+          imagetype="png" ,
+          height = 500 , 
+          width = 500 , 
+          resolution = 400,
+          compression = "lzw",
+          lwd = 1,
+          col=c( '#078285', '#F1962C', '#4A0933' ),
+          fill = c(alpha('#078285',0.3), alpha('#F1962C',0.3), alpha('#4A0933',0.3)),
+          cex = 0.4,
+          fontfamily = "sans",
+          cat.cex = 0.4,
+          cat.pos = c(-10, 0, 130),
+          cat.dist = c(0.2, 0.2, 0.2),
+          cat.default.pos = "text",
+          cat.fontfamily = "sans",
+          cat.col = c('#078285', '#F1962C', '#4A0933'))
+
+```
+
