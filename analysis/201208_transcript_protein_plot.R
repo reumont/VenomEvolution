@@ -6,11 +6,12 @@ library(limma)
 library(ggplot2)
 library(readr)
 library(NOISeq)
+library(VennDiagram)
 library(data.table)
 library(magrittr)
 library(kableExtra)
 library(ggpubr)
-library(tximport)
+library(RColorBrewer)
 library(stringi)
 library(dplyr)
 library(viridis)
@@ -294,4 +295,38 @@ g<-{chordDiagram(all_species_proteins,grid.col = grid.col,row.col = 1:3, annotat
       circos.text(CELL_META$xcenter, CELL_META$ylim[1], CELL_META$sector.index, facing = "clockwise", cex = 0.3, niceFacing = TRUE, adj = c(0,0.4)) }, bg.border = NA, track.height = 10)
 }
 dev.off()
+
+
+all_species_filtered <- all_species_tr_plot %>%
+   set_colnames(c("protein_id", "Apis", "Halictus", "Xylocopa")) %>%
+   gather(species,TPM, Apis:Xylocopa, na.rm = T) %>%
+   drop_na()
+
+venn.diagram(
+   x = list(    
+      all_species_filtered %>% filter(species=="Apis" ) %>% pull(protein_id), 
+      all_species_filtered %>% filter(species=="Halictus" ) %>% pull(protein_id), 
+      all_species_filtered %>% filter(species=="Xylocopa" ) %>% pull(protein_id)), 
+   category.names = c("Apis (17)" , "Halictus (11)", "Xylocopa (14)"),
+   filename = '../201208_figures/venom_venn_filt.png',
+   output = TRUE ,
+   imagetype="png" ,
+   height = 500 , 
+   width = 500 , 
+   resolution = 400,
+   compression = "lzw",
+   lwd = 1,
+   col=c( '#078285', '#F1962C', '#4A0933' ),
+   fill = c(alpha('#078285',0.3), alpha('#F1962C',0.3), alpha('#4A0933',0.3)),
+   cex = 0.4,
+   fontfamily = "sans",
+   cat.cex = 0.4,
+   cat.pos = c(9, -11, -1),
+   cat.dist = c(0.4, 0.33, 0.3),
+   cat.default.pos = "text",
+   cat.fontfamily = "sans",
+   cat.col = c('#078285', '#F1962C', '#4A0933'))
+
+
+
 
