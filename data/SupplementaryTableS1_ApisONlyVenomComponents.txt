@@ -1,0 +1,74 @@
+Transdecoder protein IDs	Transcript ID	Expression value	Blast-P toxprot (sseqid)	E-value	Bitscore	Blast-P UniProt Apocrita (sseqid)	E-value	Bitscore	Blast-P UniProt All (sseqid)	E-value	Bitscore	Physiological association	Venom protein family
+NODE_11920_length_1264_cov_21752.067825_g8218_i0.p3	NODE_11920_length_1264_cov_21752.067825_g8218_i0	10874.7012	Apamin	2.14E-30	96.7	Apamin	2.27E-31	96.7	Apamin protein	4.77E-27	96.7	Toxin	Apamin
+TRINITY_DN38_c0_g2_i3.p1	TRINITY_DN38_c0_g2_i3	918.4574656	NA	NA	NA	Apidaecins type 22	7.24E-57	166	Apidaecins type 22	1.52E-52	166	Venom component	Apidaecin
+NODE_28629_length_412_cov_2765.735905_g22893_i0.p3	NODE_28629_length_412_cov_2765.735905_g22893_i0	927.4201223	NA	NA	NA	Apidaecins type 73 (Fragment)	4.56E-74	216	Apidaecin (Fragment)	1.63E-71	217	Venom component	Apidaecin
+NODE_24540_length_505_cov_3301.937778_g18995_i0.p1	NODE_24540_length_505_cov_3301.937778_g18995_i0	1934.144672	NA	NA	NA	NA	NA	NA	C1q-like venom protein	7.5E-115	328	Venom component	C1q-like
+TRINITY_DN21858_c0_g1_i1.p1	TRINITY_DN21858_c0_g1_i1	36.72202147	Calglandulin	3E-40	129	NA	NA	NA	Putative calmodulin isoform x3 (Fragment)	2.92E-105	305	Venom component	Calglandulin
+NODE_2447_length_3705_cov_272.814050_g1430_i0.p1	NODE_2447_length_3705_cov_272.814050_g1430_i0	142.7420516	Calglandulin	3E-40	129	NA	NA	NA	Putative calmodulin isoform x3 (Fragment)	2.92E-105	305	Venom component	Calglandulin
+NODE_8622_length_1713_cov_138.656212_g588_i1.p1	NODE_8622_length_1713_cov_138.656212_g588_i1	27.75089414	NA	NA	NA	NA	NA	NA	Carboxypeptidase D	0	943	Venom component	Carboxypeptidase D
+NODE_9154_length_1625_cov_145.924204_g588_i2.p1	NODE_9154_length_1625_cov_145.924204_g588_i2	28.58326591	NA	NA	NA	NA	NA	NA	Carboxypeptidase D	0	886	Venom component	Carboxypeptidase D
+TRINITY_DN337_c0_g1_i3.p1	TRINITY_DN337_c0_g1_i3	32.08444826	NA	NA	NA	NA	NA	NA	Uncharacterized protein/CarboxypeptidaseD 	7.41E-86	312	Venom component	Carboxypeptidase D
+NODE_5128_length_2490_cov_1011.854620_g3398_i0.p1	NODE_5128_length_2490_cov_1011.854620_g3398_i0	264.9695056	NA	NA	NA	NA	NA	NA	Chitinase protein Idgf4	2.95E-165	468	Venom component	Chitinase
+R1025530.p1	R1025530	87.58483805	Cystatin-1	1.71E-10	56.2	NA	NA	NA	Uncharacterized protein	0	1817	Venom component	Cystatin
+NODE_4090_length_2882_cov_402.678660_g2412_i0.p1	NODE_4090_length_2882_cov_402.678660_g2412_i0	171.858226	Venom dipeptidyl peptidase 4	0	1600	Venom dipeptidyl peptidase 4	0	1600	Venom dipeptidyl peptidase 4	0	1614	Toxin	Dipeptidyl peptidase 4
+TRINITY_DN999_c3_g1_i1.p1	TRINITY_DN999_c3_g1_i1	68.79533918	Hyaluronidase	0	691	Hyaluronidase	0	691	Hyaluronidase	0	691	Toxin	Hyaluronidase
+R1024725.p1	R1024725	177.3056982	Hyaluronidase	0	691	Hyaluronidase	0	691	Hyaluronidase	0	691	Toxin	Hyaluronidase
+NODE_44489_length_278_cov_0.748768_g38728_i0.p1	NODE_44489_length_278_cov_0.748768_g38728_i0	0.727234945	Icarapin	2E-55	167	Icarapin-like	2.12E-56	167	Icarapin variant 2 (Fragment)	4.16E-55	174	Toxin	Icarapin
+NODE_6700_length_2072_cov_10229.525037_g4464_i1.p1	NODE_6700_length_2072_cov_10229.525037_g4464_i1	2847.929228	Icarapin	5.07E-163	445	Icarapin-like	5.38E-164	445	Icarapin-like	1.13E-159	445	Toxin	Icarapin
+NODE_18028_length_766_cov_1892.343179_g8026_i1.p1	NODE_18028_length_766_cov_1892.343179_g8026_i1	1057.334334	Omega-conotoxin-like protein 1	1.36E-52	154	Omega-conotoxin-like protein 1	1.44E-53	154	Inhibitor cysteine knot peptide	3.02E-49	154	Toxin	ICK-Knottin
+NODE_3646_length_3065_cov_183.230769_g1489_i3.p1	NODE_3646_length_3065_cov_183.230769_g1489_i3	67.82802985	NA	NA	NA	Major royal jelly protein 1	5.76E-169	474	Major royal jelly protein 9	0	867	Venom component	Major Royal Jelly
+R1025397.p1	R1025397	235.814867	NA	NA	NA	Major royal jelly protein 1	0	519	Major royal jelly protein 8	0	854	Venom component	Major royal jelly protein
+NODE_18339_length_747_cov_15153.239884_g8218_i2.p1	NODE_18339_length_747_cov_15153.239884_g8218_i2	168.368931	Mast cell degranulating peptide	6.36E-32	100	Mast cell degranulating peptide	6.75E-33	100	Mast cell degranulating peptide	5.63E-29	101	Toxin	Mast cell degranulating protein
+NODE_11920_length_1264_cov_21752.067825_g8218_i0.p1	NODE_11920_length_1264_cov_21752.067825_g8218_i0	10874.7012	Mast cell degranulating peptide	6.36E-32	100	Mast cell degranulating peptide	6.75E-33	100	Mast cell degranulating peptide	5.63E-29	101	Toxin	Mast cell degranulating protein
+TRINITY_DN19039_c1_g1_i1.p1	TRINITY_DN19039_c1_g1_i1	1.463235366	Melittin	8.03E-10	48.9	Melittin	8.52E-11	48.9	Uncharacterized protein	5.32E-92	284	Toxin	Melittin
+TRINITY_DN10322_c0_g1_i2.p6	TRINITY_DN10322_c0_g1_i2	0	Melittin	8.11E-08	39.3	Melittin	8.6E-09	39.3	Melittin	0.00018	39.3	Toxin	Mellitin
+NODE_39837_length_291_cov_0.983051_g34173_i0.p1	NODE_39837_length_291_cov_0.983051_g34173_i0	2.635374381	Melittin	3.92E-22	77.4	Melittin	4.16E-23	77.4	Melittin	8.72E-19	77.4	Toxin	Mellitin
+TRINITY_DN18396_c0_g1_i1.p5	TRINITY_DN18396_c0_g1_i1	2.88596734	Melittin	4.03E-08	39.7	Melittin	4.28E-09	39.7	Melittin	0.0000716	39.7	Toxin	Mellitin
+NODE_2528_length_3602_cov_40.640541_g1631_i0.p30	NODE_2528_length_3602_cov_40.640541_g1631_i0	3.633832509	NA	NA	NA	NA	NA	NA	Uncharacterized/Mellitin	2.50E-08	125	Toxin	Mellitin
+NODE_50813_length_248_cov_1.051813_g45149_i0.p1	NODE_50813_length_248_cov_1.051813_g45149_i0	4.689105126	Melittin	2.56E-18	67.4	Melittin	2.72E-19	67.4	Melittin	5.7E-15	67.4	Toxin	Mellitin
+NODE_12118_length_1243_cov_10805.042088_g8373_i0.p9	NODE_12118_length_1243_cov_10805.042088_g8373_i0	5.837841716	Melittin	0.000000123	38.9	Melittin	1.31E-08	38.9	Melittin	0.000272	38.5	Toxin	Mellitin
+TRINITY_DN7492_c0_g1_i1.p8	TRINITY_DN7492_c0_g1_i1	6.615274449	Melittin	1.89E-14	56.2	Melittin	2.01E-15	56.2	Melittin	2.17E-11	56.6	Toxin	Mellitin
+NODE_49307_length_261_cov_541237.096774_g43546_i0.p1	NODE_49307_length_261_cov_541237.096774_g43546_i0	9.628469185	Melittin	7.65E-11	49.3	Melittin	8.12E-12	49.3	Melittin	8.83E-08	50.1	Toxin	Mellitin
+TRINITY_DN19171_c1_g1_i1.p1	TRINITY_DN19171_c1_g1_i1	9.718814787	Melittin	4.8E-14	56.2	Melittin	5.09E-15	56.2	Melittin	6.42E-11	56.6	Toxin	Mellitin
+NODE_10403_length_1439_cov_3311.402493_g351_i3.p6	NODE_10403_length_1439_cov_3311.402493_g351_i3	12.32147836	Melittin	4.2E-12	51.6	Melittin	4.46E-13	51.6	Melittin	3.59E-09	52.4	Toxin	Mellitin
+TRINITY_DN12646_c3_g1_i1.p1	TRINITY_DN12646_c3_g1_i1	12.93459961	Melittin	4.39E-15	59.3	Melittin	4.66E-16	59.3	Melittin	9.77E-12	59.3	Toxin	Mellitin
+NODE_54636_length_223_cov_8.095238_g48972_i0.p1	NODE_54636_length_223_cov_8.095238_g48972_i0	13.22701702	Melittin	3.35E-22	77.8	Melittin	3.55E-23	77.8	Melittin	7.45E-19	77.8	Toxin	Mellitin
+TRINITY_DN3177_c0_g1_i2.p4	TRINITY_DN3177_c0_g1_i2	13.43895102	Melittin	0.00000646	34.3	Melittin	0.000000686	34.3	NA	NA	NA	Toxin	Mellitin
+NODE_53886_length_248_cov_1.017341_g48125_i0.p1	NODE_53886_length_248_cov_1.017341_g48125_i0	17.14304722	Melittin	2.83E-20	72.4	Melittin	3E-21	72.4	Melittin	6.3E-17	72.4	Toxin	Mellitin
+TRINITY_DN1249_c0_g1_i1.p11	TRINITY_DN1249_c0_g1_i1	18.00976628	NA	NA	NA	NA	NA	NA	Uncharacterized/Mellitin	2.30E-17	188	Toxin	Mellitin
+TRINITY_DN6995_c0_g2_i2.p4	TRINITY_DN6995_c0_g2_i2	19.97189537	Melittin	9.34E-12	49.7	Melittin	9.91E-13	49.7	Melittin	9.32E-09	50.4	Toxin	Mellitin
+TRINITY_DN3849_c0_g2_i3.p9	TRINITY_DN3849_c0_g2_i3	19.99364921	Melittin	4.18E-09	42.4	Melittin	4.44E-10	42.4	Melittin	0.00000774	42.4	Toxin	Mellitin
+TRINITY_DN3929_c0_g1_i1.p3	TRINITY_DN3929_c0_g1_i1	23.31658417	Melittin	0.000000059	39.3	Melittin	6.27E-09	39.3	Melittin	0.000131	39.3	Toxin	Mellitin
+TRINITY_DN2882_c0_g1_i3.p3	TRINITY_DN2882_c0_g1_i3	34.73149601	Melittin	3.14E-13	53.9	Melittin	3.34E-14	53.9	Melittin	7E-10	53.9	Toxin	Mellitin
+NODE_51757_length_254_cov_0.849162_g45996_i0.p2	NODE_51757_length_254_cov_0.849162_g45996_i0	62.31264808	Melittin	1.53E-16	62.8	Melittin	1.62E-17	62.8	Melittin	3.4E-13	62.8	Toxin	Mellitin
+TRINITY_DN8492_c0_g1_i2.p5	TRINITY_DN8492_c0_g1_i2	162.610691	Melittin	1.96E-11	50.1	Melittin	2.08E-12	50.1	Melittin	4.22E-08	50.1	Toxin	Mellitin
+TRINITY_DN3221_c0_g1_i3.p1	TRINITY_DN3221_c0_g1_i3	202.6841927	Melittin	2.3E-13	55.8	Melittin	2.44E-14	55.8	Melittin	2.51E-10	56.2	Toxin	Mellitin
+TRINITY_DN350_c7_g1_i1.p1	TRINITY_DN350_c7_g1_i1	17808.41482	Melittin	6.38E-15	58.5	Melittin	6.77E-16	58.5	Melittin	5.2E-12	59.3	Toxin	Mellitin
+TRINITY_DN5_c2_g1_i1.p1	TRINITY_DN5_c2_g1_i1	328360.2366	Melittin	4.65E-47	140	Melittin	4.94E-48	140	Melittin	1.04E-43	140	Toxin	Mellitin
+TRINITY_DN5_c2_g1_i1.p2	TRINITY_DN5_c2_g1_i1	328360.2366	Melittin	4.65E-47	140	Melittin	4.94E-48	140	Melittin	1.04E-43	140	Toxin	Mellitin
+TRINITY_DN176_c0_g2_i29.p1	TRINITY_DN176_c0_g2_i29	9.562062815	Venom metalloproteinase 3	6.8E-34	129	Venom metalloproteinase 3	7.22E-35	129	Peptidase M12B domain-containing protein	0	1202	Toxin	Metalloprotease M12B
+NODE_15441_length_913_cov_534.093079_g10606_i0.p1	NODE_15441_length_913_cov_534.093079_g10606_i0	349.3200055	Peroxiredoxin-4 (Fragments)	4.9E-17	67.8	NA	NA	NA	Thioredoxin domain-containing protein	2.52E-143	402	Venom component	Peroxiredoxin 4
+NODE_13401_length_1105_cov_468.260000_g9314_i0.p1	NODE_13401_length_1105_cov_468.260000_g9314_i0	2.385192673	Peroxiredoxin-4 (Fragments)	8.72E-18	68.9	NA	NA	NA	Thioredoxin domain-containing protein	3.38E-109	314	Venom component	Peroxiredoxin4
+NODE_11040_length_1349_cov_3010.901099_g4121_i3.p1	NODE_11040_length_1349_cov_3010.901099_g4121_i3	1607.576301	Phospholipase A2	2.42E-127	350	Phospholipase A2	2.57E-128	350	Phospholipase A2	5.4E-124	350	Toxin	Phospholipase  A2
+NODE_53677_length_249_cov_0.873563_g47916_i0.p1	NODE_53677_length_249_cov_0.873563_g47916_i0	0.929055166	Phospholipase A2	5.38E-28	94	Phospholipase A2	5.71E-29	94	Phospholipase A2 (Fragment)	6.86E-25	93.6	Toxin	Phospholipase A2
+NODE_40674_length_288_cov_0.824034_g35010_i0.p2	NODE_40674_length_288_cov_0.824034_g35010_i0	1.34689755	Phospholipase A2	1.04E-36	116	Phospholipase A2	1.1E-37	116	Phospholipase A2	2.31E-33	116	Toxin	Phospholipase A2
+NODE_7908_length_1851_cov_1172.670045_g4121_i1.p4	NODE_7908_length_1851_cov_1172.670045_g4121_i1	78.11391077	Phospholipase A2	8.94E-34	109	Phospholipase A2	9.48E-35	109	Phospholipase A2	1.1E-30	110	Toxin	Phospholipase A2
+R1036651.p1	R1036651	949.9860718	Phospholipase A2	3.5E-49	156	Phospholipase A2	3.71E-50	156	PA2c domain-containing protein	5.07E-127	362	Toxin	Phospholipase A2
+NODE_27106_length_438_cov_721.168044_g21398_i0.p1	NODE_27106_length_438_cov_721.168044_g21398_i0	266.1292996	NA	NA	NA	NA	NA	NA	PVF1 variant 1 (Fragment)	5.22E-49	161	Venom component	PVF1
+NODE_16160_length_860_cov_4556.777070_g11199_i0.p1	NODE_16160_length_860_cov_4556.777070_g11199_i0	17.80246022	Secapin	3.9E-53	156	Secapin	4.14E-54	156	Secapin	8.68E-50	156	Toxin	Secapin
+TRINITY_DN9_c0_g1_i1.p1	TRINITY_DN9_c0_g1_i1	5370.349558	Secapin	3.9E-53	156	Secapin	4.14E-54	156	Secapin	8.68E-50	156	Toxin	Secapin
+R1024865.p1	R1024865	103.0537267	Snake venom 5'-nucleotidase	2.25E-139	414	NA	NA	NA	Uncharacterized protein	0	1222	Venom component	Snake venom 5'-nucleotidase
+TRINITY_DN1093_c0_g3_i2.p1	TRINITY_DN1093_c0_g3_i2	179.524656	NA	NA	NA	NA	NA	NA	Superoxide dismutase [Cu-Zn]	9.92E-124	351	Venom component	Superoxide dismutase
+NODE_14318_length_1026_cov_588.271885_g10016_i0.p1	NODE_14318_length_1026_cov_588.271885_g10016_i0	308.5600124	NA	NA	NA	NA	NA	NA	Superoxide dismutase [Cu-Zn]	5.76E-106	304	Venom component	Superoxide dismutase
+NODE_9157_length_1632_cov_16.547848_g5858_i0.p1	NODE_9157_length_1632_cov_16.547848_g5858_i0	1.86670295	Venom acid phosphatase Acph-1	0	800	Venom acid phosphatase Acph-1	0	800	Venom acid phosphatase Acph-1	0	826	Toxin	Venom acid phosphatase Acph-1
+TRINITY_DN1533_c3_g1_i1.p1	TRINITY_DN1533_c3_g1_i1	22.82425731	Venom acid phosphatase Acph-1	3.4E-70	221	Venom acid phosphatase Acph-1	3.6E-71	221	Uncharacterized protein	0	754	Toxin	Venom acid phosphatase Acph-1
+TRINITY_DN8560_c0_g1_i1.p2	TRINITY_DN8560_c0_g1_i1	24.08815798	Venom acid phosphatase Acph-1	0	800	Venom acid phosphatase Acph-1	0	800	Venom acid phosphatase Acph-1	0	826	Toxin	Venom acid phosphatase Acph-1
+TRINITY_DN11539_c0_g1_i7.p1	TRINITY_DN11539_c0_g1_i7	39.166806	Venom carboxylesterase-6	0	724	Venom carboxylesterase-6	0	724	Carboxylic ester hydrolase	0	724	Venom component	Venom carboxylesterase-6
+TRINITY_DN11539_c0_g1_i9.p2	TRINITY_DN11539_c0_g1_i9	44.07062859	Venom carboxylesterase-6	1.37E-105	308	Venom carboxylesterase-6	1.46E-106	308	Venom carboxylesterase-6	3.06E-102	308	Toxin	Venom carboxylesterase-6
+TRINITY_DN55_c0_g3_i1.p1	TRINITY_DN55_c0_g3_i1	305.6365745	Venom serine carboxypeptidase	0	962	Venom serine carboxypeptidase	0	962	Venom serine carboxypeptidase	0	962	Toxin	Venom serine carboxypeptidase
+NODE_10530_length_1432_cov_7.620915_g7215_i0.p1	NODE_10530_length_1432_cov_7.620915_g7215_i0	3.519486718	Venom serine protease 34	0	828	Venom serine protease 34	0	828	Venom serine protease 34	0	828	Toxin	Venom serine protease
+NODE_10174_length_1471_cov_85.495702_g6621_i0.p1	NODE_10174_length_1471_cov_85.495702_g6621_i0	15.13873563	Blarina toxin	2.19E-28	104	Chymotrypsin-1	4.74E-30	105	Peptidase S1 domain-containing protein	5.37E-163	455	Toxin	Venom serine protease
+R1027523.p1	R1027523	25.37254108	Snake venom serine protease BITS01A	4.11E-30	110	Chymotrypsin-1	3.39E-32	112	Peptidase S1 domain-containing protein	0	540	Toxin	Venom Serine Protease
+R1025617.p1	R1025617	160.7505809	Venom serine protease Bi-VSP	7.6E-171	476	Venom serine protease Bi-VSP	8.06E-172	476	Peptidase S1 domain-containing protein	0	733	Toxin	Venom serine protease
+NODE_8360_length_1756_cov_674.852440_g5640_i0.p1	NODE_8360_length_1756_cov_674.852440_g5640_i0	5.44999885	Allergen Api m 6.03 / Api m 6.04	4.03E-36	114	Allergen Api m 6.03 / Api m 6.04	4.28E-37	114	Allergen Api m 6.03 / Api m 6.04	8.97E-33	114	Toxin	Venom serine protease inhibitor
+TRINITY_DN19063_c0_g1_i4.p1	TRINITY_DN19063_c0_g1_i4	10.28040319	Venom serine protease inhibitor	3.63E-12	52.8	Chymotrypsin inhibitor	4.64E-38	115	Chymotrypsin inhibitor	1.66E-48	152	Venom component	Venom serine protease inhibitor

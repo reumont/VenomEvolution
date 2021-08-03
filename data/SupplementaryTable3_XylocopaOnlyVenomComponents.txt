@@ -1,0 +1,63 @@
+Transdecoder protein IDs	Transcript ID	Expression value	Blast-P toxprot (sseqid)	E-value	Bitscore	Blast-P UniProt Apocrita (sseqid)	E-value	Bitscore	Blast-P UniProt All (sseqid)	E-value	Bitscore	Physiological association	Venom protein family
+NODE_1472_length_5167_cov_6682.005086_g138_i2.p13	NODE_1472_length_5167_cov_6682.005086_g138_i2	2.789827253	Apamin	0.00000833	34.7	Apamin	0.000000883	34.7	NA	NA	NA	Toxin	Apamin
+NODE_3030_length_3632_cov_15937.103998_g2195_i0.p11	NODE_3030_length_3632_cov_15937.103998_g2195_i0	8.855351561	Apamin	0.00000146	36.6	Apamin	0.000000155	36.6	NA	NA	NA	Toxin	Apamin
+NODE_835_length_6390_cov_9000.415943_g618_i0.p10	NODE_835_length_6390_cov_9000.415943_g618_i0	10.90223829	Apamin	0.00000146	36.6	Apamin	0.000000155	36.6	NA	NA	NA	Toxin	Apamin
+NODE_11225_length_1162_cov_51432.834688_g2195_i1.p4	NODE_11225_length_1162_cov_51432.834688_g2195_i1	13.00180871	Apamin	0.00000146	36.6	Apamin	0.000000155	36.6	NA	NA	NA	Toxin	Apamin
+NODE_5506_length_2432_cov_11853.814472_g138_i9.p8	NODE_5506_length_2432_cov_11853.814472_g138_i9	14.50973054	Apamin	0.00000833	34.7	Apamin	0.000000883	34.7	NA	NA	NA	Toxin	Apamin
+NODE_7581_length_1820_cov_40483.276487_g138_i12.p7	NODE_7581_length_1820_cov_40483.276487_g138_i12	226.7294771	Apamin	0.00000833	34.7	Apamin	0.000000883	34.7	NA	NA	NA	Toxin	Apamin
+NODE_19236_length_526_cov_94225.813163_g15043_i0.p3	NODE_19236_length_526_cov_94225.813163_g15043_i0	283.5956994	Apamin	0.00000146	36.6	Apamin	0.000000155	36.6	NA	NA	NA	Toxin	Apamin
+NODE_10042_length_1345_cov_20691.368992_g138_i17.p2	NODE_10042_length_1345_cov_20691.368992_g138_i17	5082.365988	Apamin	0.00000833	34.7	Apamin	0.000000883	34.7	NA	NA	NA	Toxin	Apamin
+TRINITY_DN1_c0_g1_i1.p6	TRINITY_DN1_c0_g1_i1	36265.1685	Apamin	0.00000108	37	Apamin	0.000000114	37	NA	NA	NA	Toxin	Apamin
+TRINITY_DN1_c0_g1_i1.p8	TRINITY_DN1_c0_g1_i1	36265.1685	Apamin	0.0000623	32.3	Apamin	0.00000661	32.3	NA	NA	NA	Toxin	Apamin
+R663995.p6	R663995	55844.83711	Apamin	0.0000091	34.3	Apamin	0.000000965	34.3	NA	NA	NA	Toxin 	Apamin
+NODE_1388_length_4997_cov_135.900244_g975_i1.p1	NODE_1388_length_4997_cov_135.900244_g975_i1	53.08652634	NA	NA	NA	Arginine kinase	0	672	Arginine kinase	0	716	Venom component	Arginine kinase
+TRINITY_DN5451_c0_g1_i2.p1	TRINITY_DN5451_c0_g1_i2	9.928728796	NA	NA	NA	NA	NA	NA	C1q domain-containing protein (Fragment)	5.54E-78	234	Toxin	C1q-like
+TRINITY_DN103_c0_g1_i2.p1	TRINITY_DN103_c0_g1_i2	86.21472796	NA	NA	NA	NA	NA	NA	C1q domain-containing protein (Fragment)	4.02E-78	234	Toxin	C1q-like
+NODE_2405_length_4075_cov_306.722886_g1741_i0.p1	NODE_2405_length_4075_cov_306.722886_g1741_i0	115.0061865	Calglandulin	3E-40	129	NA	NA	NA	Putative calmodulin isoform x3 (Fragment)	2.92E-105	305	Venom component	Calglandulin
+TRINITY_DN3254_c0_g1_i1.p1	TRINITY_DN3254_c0_g1_i1	3.523985104	NA	NA	NA	NA	NA	NA	Carboxypeptidase D	0	1878	Toxin	Carboxypeptidase D
+TRINITY_DN3254_c0_g1_i4.p1	TRINITY_DN3254_c0_g1_i4	5.487956832	NA	NA	NA	NA	NA	NA	Carboxypeptidase D	0	1636	Toxin	Carboxypeptidase D
+NODE_1293_length_5449_cov_108.784946_g950_i0.p1	NODE_1293_length_5449_cov_108.784946_g950_i0	37.9258919	NA	NA	NA	NA	NA	NA	Carboxypeptidase D	0	2285	Venom component	Carboxypeptidase D
+TRINITY_DN617_c0_g1_i1.p1	TRINITY_DN617_c0_g1_i1	196.2185073	NA	NA	NA	NA	NA	NA	Chitinase protein Idgf4	0	795	Venom component	Chitinase
+NODE_3329_length_3218_cov_353.115495_g2485_i0.p1	NODE_3329_length_3218_cov_353.115495_g2485_i0	200.7282905	Cystatin-1	4.45E-12	60.8	NA	NA	NA	Uncharacterized protein	0	1416	Toxin	Cystatin
+TRINITY_DN141_c0_g2_i1.p1	TRINITY_DN141_c0_g2_i1	109.5549021	Venom dipeptidyl peptidase 4	0	1229	Venom dipeptidyl peptidase 4	0	1229	Venom dipeptidyl peptidase 4	0	1231	Toxin	Dipeptidyl peptidase 4
+TRINITY_DN803_c0_g1_i1.p1	TRINITY_DN803_c0_g1_i1	37.29048408	NA	NA	NA	Elongation factor 1-alpha	0	949	Elongation factor 1-alpha	0	949	Venom component	EF1 alpha
+NODE_1927_length_4293_cov_1469.956852_g1437_i0.p1	NODE_1927_length_4293_cov_1469.956852_g1437_i0	639.2909924	NA	NA	NA	Elongation factor 1-alpha	0	866	Elongation factor 1-alpha	0	933	Venom component	EF1 alpha
+TRINITY_DN76_c0_g2_i1.p1	TRINITY_DN76_c0_g2_i1	280.1155507	Hyaluronidase	0	581	Hyaluronidase	0	581	Glycylpeptide N-tetradecanoyltransferase	0	630	Toxin	Hyaluronidase
+TRINITY_DN7_c0_g1_i6.p1	TRINITY_DN7_c0_g1_i6	912.2172404	Icarapin	9.4E-81	237	Icarapin-like	9.97E-82	237	Icarapin-like	2.09E-77	237	Toxin	Icarapin
+NODE_9056_length_1506_cov_6966.522398_g6487_i1.p1	NODE_9056_length_1506_cov_6966.522398_g6487_i1	1328.876644	Icarapin	9.4E-81	237	Icarapin-like	9.97E-82	237	Icarapin-like	2.09E-77	237	Toxin	Icarapin
+R662278.p1	R662278	2331.191371	NA	NA	NA	NA	NA	NA	IRP30	3.43E-158	446	Venom component	IRP30
+TRINITY_DN5467_c0_g1_i3.p1	TRINITY_DN5467_c0_g1_i3	2.59240941	NA	NA	NA	Major royal jelly protein 1	8.87E-140	401	Major royal jelly protein	2.36E-175	501	Venom component	Major royal jelly protein
+NODE_38821_length_260_cov_1.492683_g34557_i0.p1	NODE_38821_length_260_cov_1.492683_g34557_i0	7.152592326	NA	NA	NA	NA	NA	NA	Venom bombolitin 2	0.0000499	42	Toxin	Melittin
+TRINITY_DN467_c0_g1_i4.p1	TRINITY_DN467_c0_g1_i4	2.293572616	NA	NA	NA	NA	NA	NA	Neuroserpin	0	525	Venom component	Neuroserpin
+TRINITY_DN467_c0_g1_i6.p1	TRINITY_DN467_c0_g1_i6	3.223871718	NA	NA	NA	NA	NA	NA	Neuroserpin	0	523	Venom component	Neuroserpin
+TRINITY_DN467_c0_g1_i14.p1	TRINITY_DN467_c0_g1_i14	4.429413109	NA	NA	NA	NA	NA	NA	Neuroserpin	0	522	Venom component	Neuroserpin
+TRINITY_DN467_c0_g1_i5.p1	TRINITY_DN467_c0_g1_i5	5.940312511	NA	NA	NA	NA	NA	NA	Neuroserpin	0	522	Venom component	Neuroserpin
+TRINITY_DN467_c0_g1_i7.p1	TRINITY_DN467_c0_g1_i7	6.499297816	NA	NA	NA	NA	NA	NA	Neuroserpin	0	525	Venom component	Neuroserpin
+R665047.p1	R665047	33.37732068	NA	NA	NA	NA	NA	NA	Neuroserpin	0	583	Venom component	Neuroserpin
+NODE_7715_length_1786_cov_284.206239_g5550_i0.p1	NODE_7715_length_1786_cov_284.206239_g5550_i0	133.9405524	Peroxiredoxin-4 (Fragments)	1.16E-15	64.3	NA	NA	NA	Peroxiredoxin 1	2.09E-136	384	Toxin	Peroxiredoxin 4
+NODE_38784_length_264_cov_0.804233_g35572_i0.p1	NODE_38784_length_264_cov_0.804233_g35572_i0	0.692193929	Phospholipase A(2)	7.88E-27	92.4	Phospholipase A(2)	8.37E-28	92.4	Phospholipase A(2)	1.76E-23	92.4	Toxin	Phospholipase A2
+NODE_27622_length_332_cov_0.856031_g24410_i0.p1	NODE_27622_length_332_cov_0.856031_g24410_i0	0.857281881	Phospholipase A(2)	4.81E-15	62.8	Phospholipase A(2)	5.11E-16	62.8	Uncharacterized protein	4.06E-13	63.2	Toxin	Phospholipase A2
+NODE_37752_length_268_cov_0.787565_g34540_i0.p1	NODE_37752_length_268_cov_0.787565_g34540_i0	4.690080988	Phospholipase A(2)	1.59E-46	143	Phospholipase A(2)	1.69E-47	143	Phospholipase A(2)	3.54E-43	143	Toxin	Phospholipase A2
+NODE_44804_length_226_cov_86890.754386_g40540_i0.p1	NODE_44804_length_226_cov_86890.754386_g40540_i0	142.301263	Phospholipase A(2)	3E-22	80.9	Phospholipase A(2)	3.18E-23	80.9	Phospholipase A(2)	6.67E-19	80.9	Toxin	Phospholipase A2
+NODE_5216_length_2369_cov_28625.392328_g1_i12.p1	NODE_5216_length_2369_cov_28625.392328_g1_i12	13060.49626	Phospholipase A(2)	3.6E-103	293	Phospholipase A(2)	3.82E-104	293	Phospholipase A(2)	8.02E-100	293	Toxin	Phospholipase A2
+NODE_7308_length_1890_cov_1778.948774_g3807_i1.p1	NODE_7308_length_1890_cov_1778.948774_g3807_i1	125.2700511	Secapin	0.0001	33.5	Secapin	0.0000107	33.5	NA	NA	NA	Toxin	Secapin
+R662287.p3	R662287	557.8646386	Secapin	0.0001	33.5	Secapin	0.0000107	33.5	NA	NA	NA	Toxin	Secapin
+NODE_11081_length_1183_cov_321.804965_g7134_i1.p1	NODE_11081_length_1183_cov_321.804965_g7134_i1	0	NA	NA	NA	NA	NA	NA	"Superoxide dismutase [Cu-Zn], chloroplastic"	2.53E-88	287	Venom component	Superoxide dismutase
+NODE_9970_length_1356_cov_284.256726_g7134_i0.p1	NODE_9970_length_1356_cov_284.256726_g7134_i0	14.81724031	NA	NA	NA	NA	NA	NA	"Superoxide dismutase [Cu-Zn], chloroplastic"	2.53E-88	287	Venom component	Superoxide dismutase
+NODE_12300_length_891_cov_419.590686_g9496_i0.p1	NODE_12300_length_891_cov_419.590686_g9496_i0	21.45689413	NA	NA	NA	NA	NA	NA	Superoxide dismutase	2.37E-93	272	Venom component	Superoxide dismutase
+NODE_12215_length_900_cov_350.141818_g8219_i1.p1	NODE_12215_length_900_cov_350.141818_g8219_i1	213.5472267	NA	NA	NA	NA	NA	NA	"Superoxide dismutase [Cu-Zn], chloroplastic"	2.53E-88	287	Venom component	Superoxide dismutase
+R662716.p1	R662716	247.3114132	NA	NA	NA	NA	NA	NA	Superoxide dismutase [Cu-Zn]	2.37E-93	272	Venom component	Superoxide dismutase
+TRINITY_DN71_c0_g1_i1.p1	TRINITY_DN71_c0_g1_i1	178.1287827	NA	NA	NA	NA	NA	NA	Thioredoxin	2.48E-59	182	Venom component	Thioredoxin
+TRINITY_DN307_c0_g1_i6.p1	TRINITY_DN307_c0_g1_i6	76.42342671	Venom acid phosphatase Acph-1	1.51E-51	172	Venom acid phosphatase Acph-1	1.6E-52	172	Prostatic acid phosphatase	0	584	Toxin	Venom acid phosphatase Acph-1
+R662799.p1	R662799	121.1488401	Venom acid phosphatase Acph-1	0	553	Venom acid phosphatase Acph-1	0	553	Venom acid phosphatase Acph-1	0	625	Toxin	Venom acid phosphatase Acph-1
+TRINITY_DN53_c0_g1_i1.p1	TRINITY_DN53_c0_g1_i1	1745.629611	Venom allergen 3	1.82E-78	233	Venom allergen 3	1.93E-79	233	Venom allergen 3 (Fragment)	1.28E-84	255	Toxin	Venom allergen
+NODE_4960_length_2469_cov_50.309942_g3691_i0.p1	NODE_4960_length_2469_cov_50.309942_g3691_i0	0.39919613	Venom serine protease Bi-VSP	3E-25	100	Venom serine protease Bi-VSP	3.18E-26	100	Serine protease snake (Fragment)	4.26E-121	369	Toxin	Venom serine protease
+NODE_4864_length_2673_cov_57.803667_g3508_i0.p1	NODE_4864_length_2673_cov_57.803667_g3508_i0	0.582306629	NA	NA	NA	NA	NA	NA	Serine protease snake (Fragment)	5.39E-18	85.1	Toxin	Venom serine protease
+TRINITY_DN758_c0_g1_i6.p1	TRINITY_DN758_c0_g1_i6	5.095452445	Venom serine protease 34	5.29E-103	303	Venom serine protease 34	5.61E-104	303	Venom serine protease 34 (Fragment)	1.16E-134	391	Toxin	Venom serine protease
+NODE_5118_length_2405_cov_54.288841_g3691_i1.p1	NODE_5118_length_2405_cov_54.288841_g3691_i1	24.68061103	Venom serine protease Bi-VSP	1.7E-43	152	Venom serine protease Bi-VSP	1.81E-44	152	Serine protease snake (Fragment)	1.21E-173	508	Toxin	Venom serine protease
+R665387.p1	R665387	37.47202684	Venom serine protease 34	9.16E-128	370	Venom serine protease 34	9.72E-129	370	Venom serine protease 34 (Fragment)	5.32E-172	491	Toxin	Venom serine protease
+TRINITY_DN20_c0_g1_i3.p1	TRINITY_DN20_c0_g1_i3	47.3853184	Venom serine protease Bi-VSP	3.45E-169	473	Venom serine protease Bi-VSP	3.66E-170	473	Peptidase S1 domain-containing protein	3.8E-171	486	Toxin	Venom serine protease
+TRINITY_DN20_c0_g1_i3.p2	TRINITY_DN20_c0_g1_i3	47.3853184	Venom serine protease Bi-VSP	1.02E-132	379	Venom serine protease Bi-VSP	1.09E-133	379	Peptidase S1 domain-containing protein	8.58E-136	395	Toxin	Venom serine protease
+R662327.p1	R662327	122.7020677	Venom serine protease Bi-VSP	2.95E-169	473	Venom serine protease Bi-VSP	3.13E-170	473	Peptidase S1 domain-containing protein	3.21E-171	486	Toxin	Venom serine protease
+R662327.p2	R662327	122.7020677	Venom serine protease Bi-VSP	1.02E-132	379	Venom serine protease Bi-VSP	1.09E-133	379	Peptidase S1 domain-containing protein	8.58E-136	395	Toxin	Venom serine protease
+NODE_24315_length_372_cov_2.542088_g21104_i0.p1	NODE_24315_length_372_cov_2.542088_g21104_i0	2.419365433	Venom serine protease inhibitor	2.37E-08	43.9	Venom serine protease inhibitor	2.52E-09	43.9	TIL domain-containing protein	7.1E-20	82.8	Venom component	Venom serine protease inhibitor

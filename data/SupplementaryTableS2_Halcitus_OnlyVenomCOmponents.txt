@@ -1,0 +1,28 @@
+Transdecoder protein IDs	Transcript ID	Expression value	Blast-P toxprot (sseqid)	E-value	Bitscore	Blast-P UniProt Apocrita (sseqid)	E-value	Bitscore	Blast-P UniProt All (sseqid)	E-value	Bitscore	Physiological association	Venom protein family
+NODE_15838_length_356_cov_2.583630_g15179_i0.p1	NODE_15838_length_356_cov_2.583630_g15179_i0	1.242733601	L-amino-acid oxidase	4.53E-12	56.2	NA	NA	NA	Smox_0 protein	1.80E-24	100	Venom component	Amino-acid oxidase
+TRINITY_DN14_c0_g1_i1.p1	TRINITY_DN14_c0_g1_i1	117.1436069	Apamin	0.000134	32.3	Apamin	0.0000142	32.3	NA	NA	NA	Toxin	Apamin
+R680344.p1	R680344	1.303186689	NA	NA	NA	Arginine kinase	0	656	Arginine kinase-like protein	0	702	Venom component	Arginine kinase
+R653374.p1	R653374	3.35801973	Calglandulin	3.00E-40	129	NA	NA	NA	Putative calmodulin isoform x3 (Fragment)	2.92E-105	305	Venom component	Calglandulin
+R649461.p1	R649461	4.153325244	NA	NA	NA	NA	NA	NA	Calreticulin	0	686	Venom component	Calreticulin
+NODE_291_length_2542_cov_16.287394_g191_i0.p1	NODE_291_length_2542_cov_16.287394_g191_i0	2.88683202	NA	NA	NA	NA	NA	NA	Carboxypeptidase D	0	1407	Toxin	Carboxypeptidase D
+S651835.p1	S651835	5.902528421	NA	NA	NA	NA	NA	NA	Chitinase-like protein Idgf4 (Fragment)	0	795	Venom component 	Chitinase
+NODE_621_length_1953_cov_23.920660_g433_i0.p1	NODE_621_length_1953_cov_23.920660_g433_i0	1.938262191	Cystatin	9.10E-12	58.5	NA	NA	NA	Uncharacterized protein	0	675	Venom component	Cystatin
+TRINITY_DN295_c0_g2_i2.p1	TRINITY_DN295_c0_g2_i2	2.774374791	Cystatin	4.46E-12	59.3	NA	NA	NA	Putative cysteine proteinase CG12163	0	681	Venom component	Cystatin
+NODE_48_length_4499_cov_302.285329_g37_i0.p1	NODE_48_length_4499_cov_302.285329_g37_i0	42.10992472	Venom dipeptidyl peptidase 4	0	1054	Venom dipeptidyl peptidase 4	0	1054	Venom dipeptidyl peptidase 4	0	1059	Toxin	Dipeptidy peptidase 4
+R647230.p1	R647230	9.715769076	NA	NA	NA	NA	NA	NA	Dipeptidyl peptidase 3 (Fragment)	0	1296	Venom component	Dipeptidyl peptidase 3
+TRINITY_DN287_c0_g1_i1.p2	TRINITY_DN287_c0_g1_i1	36.0459874	NA	NA	NA	Elongation factor 1-alpha	0	863	Elongation factor 1-alpha	0	921	Venom component 	EF1 alpha
+NODE_150_length_3308_cov_392.762140_g82_i0.p1	NODE_150_length_3308_cov_392.762140_g82_i0	70.10773263	NA	NA	NA	Elongation factor 1-alpha	0.00000265	43.5	Elongation factor 1-alpha	0	1732	Venom component	EF1 alpha
+TRINITY_DN143_c0_g1_i1.p1	TRINITY_DN143_c0_g1_i1	36.11227252	Hyaluronidase	0	568	Hyaluronidase	0	568	Hyaluronidase (Fragment)	0	603	Toxin	Hyaluronidase
+TRINITY_DN57400_c0_g1_i1.p1	TRINITY_DN57400_c0_g1_i1	2.292199004	NA	NA	NA	NA	NA	NA	IRP30	1.23E-115	335	Venom component	IRP30
+NODE_8855_length_492_cov_334.988558_g8330_i0.p1	NODE_8855_length_492_cov_334.988558_g8330_i0	84.85544057	Kunitz-type serine protease inhibitor Bt-KTI	9.23E-20	72.8	Kunitz-type serine protease inhibitor Bt-KTI	9.80E-21	72.8	Protease inhibitor 5	4.56E-25	94.7	Venom component	Kunitz-type proteinase inhibitor
+NODE_1966_length_1151_cov_15.059307_g1725_i0.p1	NODE_1966_length_1151_cov_15.059307_g1725_i0	1.154304537	NA	NA	NA	Major royal jelly protein 1	4.37E-91	273	Major royal jelly protein 2	2.38E-113	341	Venom component	Major royal jelly protein
+TRINITY_DN61965_c0_g1_i1.p1	TRINITY_DN61965_c0_g1_i1	53.14902352	Peroxiredoxin-4 (Fragments)	1.11E-17	69.7	NA	NA	NA	2-cys peroxiredoxin	1.20E-136	385	Toxin	Peroxiredoxin 4
+NODE_382_length_2342_cov_14.905990_g336_i0.p1	NODE_382_length_2342_cov_14.905990_g336_i0	2.145535532	Phospholipase A2 isozymes PA3A/PA3B/PA5	5.71E-26	95.9	Phospholipase A(2)	3.87E-26	94.7	Phospholipase A2 isozymes PA3A/PA3B/PA5	2.60E-163	458	Toxin	Phospholipase A2
+NODE_2013_length_1139_cov_12.987085_g1769_i0.p1	NODE_2013_length_1139_cov_12.987085_g1769_i0	2.257870907	Phospholipase A2	1.51E-40	132	Phospholipase A2	1.60E-41	132	Phospholipase A2	4.83E-75	231	Toxin	Phospholipase A2
+TRINITY_DN1335_c0_g1_i4.p1	TRINITY_DN1335_c0_g1_i4	10.29987759	NA	NA	NA	NA	NA	NA	Superoxide dismutase [Cu-Zn]	1.31E-91	268	Venom component	Superoxide dismutase
+TRINITY_DN18831_c0_g1_i2.p1	TRINITY_DN18831_c0_g1_i2	3.398351963	NA	NA	NA	NA	NA	NA	"Thioredoxin reductase 1, mitochondrial"	0	943	Venom component	Thioredoxin
+R646329.p1	R646329	54.30548181	NA	NA	NA	NA	NA	NA	Thioredoxin domain-containing protein	5.87E-52	167	Venom component	Thioredoxin
+TRINITY_DN17772_c0_g1_i1.p1	TRINITY_DN17772_c0_g1_i1	2.635315659	Venom acid phosphatase Acph-1	7.10E-78	234	Venom acid phosphatase Acph-1	7.54E-79	234	Venom acid phosphatase Acph-1	9.73E-89	271	Toxin	Venom acid phosphatase Acph-1
+TRINITY_DN1533_c0_g1_i3.p1	TRINITY_DN1533_c0_g1_i3	7.522572814	Venom acid phosphatase Acph-1	1.55E-67	214	Venom acid phosphatase Acph-1	1.65E-68	214	Venom acid phosphatase Acph-1	0	538	Toxin	Venom acid phosphatase Acph-1
+NODE_14217_length_383_cov_79.085366_g13669_i0.p2	NODE_14217_length_383_cov_79.085366_g13669_i0	27.77990047	Venom serine protease inhibitor	8.71E-12	52.4	Chymotrypsin inhibitor	2.29E-20	70.9	Venom serine protease inhibitor	8.95E-26	95.9	Venom component	Venom serine protease inhibitor
+TRINITY_DN9928_c0_g1_i1.p1	TRINITY_DN9928_c0_g1_i1	7.692860055	NA	NA	NA	Vitellogenin	0	1791	Vitellogenin	0	2232	Venom component	Vitellogenin
