@@ -1,3 +1,3 @@
-# R code from "Most bee venom genes originated in ancestors of sawfly hymenopterans before the aculeate stinger evolved"
+# R code from "Prevalent bee venom genes evolved before the aculeate stinger and eusociality"
 
-Code for the manuscript "Most bee venom genes originated in ancestors of sawfly hymenopterans before the aculeate stinger evolved".
+Code to visualize RNASeq data from three different venom gland systems of bees for the manuscript "Prevalent bee venom genes evolved before the aculeate stinger and eusociality".
